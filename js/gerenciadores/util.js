@@ -15,8 +15,15 @@ class Util {
 		contexto.closePath();
 
 		if (teclaCPressionada) {
-			//desnha o texto FPS
+			//desenha barra de menu
+			contexto.beginPath();
+			contexto.rect(0, 0, largura, 30);
 			contexto.fillStyle = "WHITE";
+			contexto.fill();
+			contexto.closePath();
+			
+			//desnha o texto FPS
+			contexto.fillStyle = "BLACKc";
 			contexto.font = "normal 10pt Arial";
 			contexto.fillText(fps.toFixed(0) + " fps", 5, 15);
 
