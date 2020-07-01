@@ -18,6 +18,9 @@ var teclaShiftPressionada = false;
 var teclaEnterPressionada = false;
 var teclaCPressionada = false;
 
+var larguraBloco = 50;
+var alturaBloco = 50;
+
 
 //Funções que tratam os eventos keydown e keyup
 function trataTeclaPrecionada(evento) {
