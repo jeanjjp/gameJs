@@ -9,6 +9,7 @@ class Heroi {
 		this.velY = velY;
 		this.cor = cor;
 		this.vida = vida;
+		this.animacaoMovimento = true;
 	}
 
 
@@ -17,12 +18,40 @@ class Heroi {
 		//faz o heroi andar
 		if (teclaEsquerdaPressionada) {
 			this.posX -= this.velX;
+			if (this.animacaoMovimento) {
+				this.posY += 2;
+				this.animacaoMovimento = false;
+			} else {
+				this.posY -= 2;
+				this.animacaoMovimento = true;
+			}
 		} else if (teclaDireitaPressionada) {
 			this.posX += this.velX;
+			if (this.animacaoMovimento) {
+				this.posY += 2;
+				this.animacaoMovimento = false;
+			} else {
+				this.posY -= 2;
+				this.animacaoMovimento = true;
+			}
 		} else if (tecladCimaPressionada) {
 			this.posY -= this.velY;
+			if (this.animacaoMovimento) {
+				this.posX += 2;
+				this.animacaoMovimento = false;
+			} else {
+				this.posX -= 2;
+				this.animacaoMovimento = true;
+			}
 		} else if (teclaBaixoPressionada) {
 			this.posY += this.velY;
+			if (this.animacaoMovimento) {
+				this.posX += 2;
+				this.animacaoMovimento = false;
+			} else {
+				this.posX -= 2;
+				this.animacaoMovimento = true;
+			}
 		}
 
 		//colide com as bordas da tela
@@ -43,13 +72,13 @@ class Heroi {
 
 	desenhaHeroi() {
 
-		// var img = new Image();
-		// img.src = 'img/inimigo.png';
-		// contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
+		var img = new Image();
+		img.src = 'res/hero.png';
+		contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
 		contexto.beginPath();
 		//desenha o heroi
-		contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
-		contexto.fillStyle = this.cor;
+		//contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
+		//contexto.fillStyle = this.cor;
 		contexto.fill();
 		contexto.closePath();
 
