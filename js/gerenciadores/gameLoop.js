@@ -6,10 +6,8 @@ var fps = 0;
 var heroi = new Heroi(canvas.width/2-10, canvas.height/2-10, 20, 20, 2, 2, "WHITE", true);
 
 
-<<<<<<< Updated upstream
-=======
+
 var heroi = new Heroi(canvas.width / 2 - 10, canvas.height / 2 - 10, 64, 64, 1, 1, "WHITE", true);
->>>>>>> Stashed changes
 
 
 /*FUNÇÕES DO JOGO*/
