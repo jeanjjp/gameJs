@@ -1,4 +1,4 @@
-class Heroi {
+class Inimigo {
 	constructor(posX, posY, tamX, tamY, velX, velY, cor, vida) {
 
 		this.posX = posX;
@@ -9,22 +9,15 @@ class Heroi {
 		this.velY = velY;
 		this.cor = cor;
 		this.vida = vida;
+		this.antes = new Date().getTime();
+		this.tempo = 0;
 	}
 
 
-	atualizaHeroi() {
-
-		//faz o heroi andar
-		if (teclaEsquerdaPressionada) {
-			this.posX -= this.velX;
-		} else if (teclaDireitaPressionada) {
-			this.posX += this.velX;
-		} else if (tecladCimaPressionada) {
-			this.posY -= this.velY;
-		} else if (teclaBaixoPressionada) {
-			this.posY += this.velY;
-		}
-
+	atualizaInimigo() {
+		//faz o inimigo andar
+		this.posX += this.velX;
+		this.posY += this.velY;
 		//colide com as bordas da tela
 		if (this.posX > canvas.width) {
 			this.posX = 0;
@@ -38,20 +31,28 @@ class Heroi {
 		if (this.posY < 0) {
 			this.posY = canvas.height;
 		}
+		this.tempo = (new Date().getTime() - this.antes) / 1000;
+
+		if (this.tempo >= 10) {
+			this.vida = false;
+		}
 
 	}
 
-	desenhaHeroi() {
+	desenhaInimigo() {
 
 		// var img = new Image();
 		// img.src = 'img/inimigo.png';
 		// contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
 		contexto.beginPath();
-		//desenha o heroi
+		//desenha o inimigo
 		contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
 		contexto.fillStyle = this.cor;
 		contexto.fill();
 		contexto.closePath();
+
+
+
 
 
 	}
@@ -83,11 +84,5 @@ class Heroi {
 	}
 	getTempo() {
 		return this.tempo;
-	}
-	setPosX(posX) {
-		this.posX = posX;
-	}
-	setCor(cor) {
-		this.cor = cor;
 	}
 }
