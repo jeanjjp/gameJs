@@ -27,6 +27,7 @@ var teclaAPressionada = false;
 var teclaSPressionada = false;
 var teclaDPressionada = false;
 var teclaCPressionada = false;
+var teclaFPressionada = false;
 
 
 //Funções que tratam os eventos keydown e keyup
@@ -57,6 +58,8 @@ function trataTeclaPrecionada(evento) {
 		teclaSPressionada = true;
 	} else if (evento.keyCode === 68) {
 		teclaDPressionada = true;
+	} else if (evento.keyCode === 70) {
+		teclaFPressionada = true;
 	}
 }
 
@@ -87,6 +90,8 @@ function trataTeclaSolta(evento) {
 		teclaSPressionada = false;
 	} else if (evento.keyCode === 68) {
 		teclaDPressionada = false;
+	} else if (evento.keyCode === 70) {
+		teclaFPressionada = false;
 	}
 }
 

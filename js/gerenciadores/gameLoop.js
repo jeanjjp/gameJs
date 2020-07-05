@@ -29,11 +29,13 @@ function gameLoop() {
 		this.frames += 1
 	}
 
-	if (teclaShiftPressionada && teclaCPressionada && editorON == false) {
+	//entra e sai do modo editor
+	if (teclaShiftPressionada && teclaCPressionada) {
 		editorON = true;
-	} else if (teclaShiftPressionada && teclaCPressionada && editorON) {
+	} else if (teclaShiftPressionada && teclaFPressionada) {
 		editorON = false;
 	}
+	
 	// Limpa o tela
 	contexto.clearRect(0, 0, canvas.width, canvas.height);
 	// desenha bakground
@@ -41,6 +43,8 @@ function gameLoop() {
 
 
 
+	
+	
 
 	//  -----  \/  DESENHA  E ATUALIZA EM CIMA DO BACKGROUD ----- \/
 
