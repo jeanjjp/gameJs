@@ -3,13 +3,14 @@ var tempoInicialFps = new Date().getTime();
 var tempoAtualFps = 0;
 var frames = 0;
 var fps = 0;
+var editorON = false;
 
-var heroi = new Heroi(canvas.width / 2 - 10, canvas.height / 2 - 10, 64, 64, 1, 1, "WHITE", true);
+var heroi = new Heroi(larguraMapa / 2 - 32, alturaMapa / 2 - 32, 64, 64, 1, 1, "WHITE", true);
 
 var arrayInimigo = [];
 var quantidadeInimigo = 20;
 for (var i = 0; i < quantidadeInimigo; i++) {
-	var inimigo = new Inimigo(Math.random() * canvas.width, Math.random() * canvas.height, 20, 20, Math.random() * -2+1, Math.random() * -2+1, "RED", true);
+	var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 20, 20, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true);
 	arrayInimigo.push(inimigo);
 }
 
@@ -27,12 +28,18 @@ function gameLoop() {
 	} else {
 		this.frames += 1
 	}
-	//console.log(tempoAtualFps);
+
+	if (teclaShiftPressionada && teclaCPressionada && editorON == false) {
+		editorON = true;
+	} else if (teclaShiftPressionada && teclaCPressionada && editorON) {
+		editorON = false;
+	}
 	// Limpa o tela
 	contexto.clearRect(0, 0, canvas.width, canvas.height);
-
 	// desenha bakground
-	Util.desenhaBackGround(canvas.width, canvas.height, "BLACK");
+	Util.desenhaBackGround(larguraMapa, alturaMapa, "BLACK");
+
+
 
 
 	//  -----  \/  DESENHA  E ATUALIZA EM CIMA DO BACKGROUD ----- \/
@@ -40,16 +47,30 @@ function gameLoop() {
 	heroi.desenhaHeroi();
 	heroi.atualizaHeroi();
 
-	for (var i = 0; i < arrayInimigo.length; i++) {
-		arrayInimigo[i].desenhaInimigo();
-		arrayInimigo[i].atualizaInimigo();
+
+	if (editorON) {
+		for (var i = 0; i < arrayInimigo.length; i++) {
+			arrayInimigo[i].desenhaInimigo();
+		}
+	} else if (!editorON) {
+		for (var i = 0; i < arrayInimigo.length; i++) {
+			arrayInimigo[i].desenhaInimigo();
+			arrayInimigo[i].atualizaInimigo();
+		}
 	}
-	
+
 	//  -----  /\  DESENHA  E ATUALIZA EM CIMA DO BACKGROUD ----- /\
-	
-	
+
+
+
+
+
 	//desenha menu
-	Util.desenhaMenu(canvas.width, 30, fps, "WHITE", "BLACK");
+	if (editorON) {
+		Util.desenhaMenuSuperior(larguraMapa, 30, fps, "#6497b1", "BLACK");
+		Util.desenhaMenuLateral(200, alturaMapa, "#6497b1");
+	}
+
 }
 
 

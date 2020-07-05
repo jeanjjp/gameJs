@@ -19,17 +19,17 @@ class Inimigo {
 		this.posX += this.velX;
 		this.posY += this.velY;
 		//colide com as bordas da tela
-		if (this.posX > canvas.width) {
-			this.posX = 0;
+		if (this.posX + this.tamX / 2 > larguraMapa) {
+			this.posX = 0 - this.tamX / 2;
 		}
-		if (this.posX < 0) {
-			this.posX = canvas.width;
+		if (this.posX + this.tamX / 2 < 0) {
+			this.posX = larguraMapa - this.tamX / 2;
 		}
-		if (this.posY > canvas.height) {
-			this.posY = 0;
+		if (this.posY + this.tamY / 2 > alturaMapa) {
+			this.posY = 0 - this.tamY / 2;
 		}
-		if (this.posY < 0) {
-			this.posY = canvas.height;
+		if (this.posY + this.tamY / 2 < 0) {
+			this.posY = alturaMapa - this.tamY / 2;
 		}
 		this.tempo = (new Date().getTime() - this.antes) / 1000;
 

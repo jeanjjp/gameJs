@@ -1,25 +1,32 @@
-
-
-
 //Configurações do canvas e criação do contexto.
 var canvas = window.document.getElementById("canvas-jogo");
-canvas.width = 1000;
+canvas.width = 1200;
 canvas.height = 900;
+
+var larguraMapa = 1000;
+var alturaMapa = 900;
+
+var larguraBloco = 50;
+var alturaBloco = 50;
 
 var contexto = canvas.getContext("2d");
 
-//Estado dos controladores do jogo
+//TECLAS
+//setas
 var teclaEsquerdaPressionada = false;
 var teclaDireitaPressionada = false;
 var tecladCimaPressionada = false;
 var teclaBaixoPressionada = false;
+//
 var teclaEspacoPressionada = false;
 var teclaShiftPressionada = false;
 var teclaEnterPressionada = false;
+//
+var teclaWPressionada = false;
+var teclaAPressionada = false;
+var teclaSPressionada = false;
+var teclaDPressionada = false;
 var teclaCPressionada = false;
-
-var larguraBloco = 50;
-var alturaBloco = 50;
 
 
 //Funções que tratam os eventos keydown e keyup
@@ -42,6 +49,14 @@ function trataTeclaPrecionada(evento) {
 		teclaEnterPressionada = true;
 	} else if (evento.keyCode === 67) {
 		teclaCPressionada = true;
+	} else if (evento.keyCode === 87) {
+		teclaWPressionada = true;
+	} else if (evento.keyCode === 65) {
+		teclaAPressionada = true;
+	} else if (evento.keyCode === 83) {
+		teclaSPressionada = true;
+	} else if (evento.keyCode === 68) {
+		teclaDPressionada = true;
 	}
 }
 
@@ -64,6 +79,14 @@ function trataTeclaSolta(evento) {
 		teclaEnterPressionada = false;
 	} else if (evento.keyCode === 67) {
 		teclaCPressionada = false;
+	} else if (evento.keyCode === 87) {
+		teclaWPressionada = false;
+	} else if (evento.keyCode === 65) {
+		teclaAPressionada = false;
+	} else if (evento.keyCode === 83) {
+		teclaSPressionada = false;
+	} else if (evento.keyCode === 68) {
+		teclaDPressionada = false;
 	}
 }
 

@@ -16,7 +16,7 @@ class Heroi {
 	atualizaHeroi() {
 
 		//faz o heroi andar
-		if (teclaEsquerdaPressionada) {
+		if (teclaEsquerdaPressionada || teclaAPressionada) {
 			this.posX -= this.velX;
 			if (this.amnimacaoMovimento) {
 				this.posY += 2;
@@ -25,7 +25,7 @@ class Heroi {
 				this.posY -= 2;
 				this.amnimacaoMovimento = true;
 			}
-		} else if (teclaDireitaPressionada) {
+		} else if (teclaDireitaPressionada || teclaDPressionada) {
 			this.posX += this.velX;
 			if (this.amnimacaoMovimento) {
 				this.posY += 2;
@@ -34,7 +34,7 @@ class Heroi {
 				this.posY -= 2;
 				this.amnimacaoMovimento = true;
 			}
-		} else if (tecladCimaPressionada) {
+		} else if (tecladCimaPressionada || teclaWPressionada) {
 			this.posY -= this.velY;
 			if (this.amnimacaoMovimento) {
 				this.posX += 2;
@@ -43,7 +43,7 @@ class Heroi {
 				this.posX -= 2;
 				this.amnimacaoMovimento = true;
 			}
-		} else if (teclaBaixoPressionada) {
+		} else if (teclaBaixoPressionada || teclaSPressionada) {
 			this.posY += this.velY;
 			if (this.amnimacaoMovimento) {
 				this.posX += 2;
@@ -55,17 +55,17 @@ class Heroi {
 		}
 
 		//colide com as bordas da tela
-		if (this.posX > canvas.width) {
-			this.posX = 0;
+		if (this.posX + this.tamX/2 > larguraMapa) {
+			this.posX = 0 - this.tamX/2;
 		}
-		if (this.posX < 0) {
-			this.posX = canvas.width;
+		if (this.posX + this.tamX/2 < 0) {
+			this.posX = larguraMapa - this.tamX/2;
 		}
-		if (this.posY > canvas.height) {
-			this.posY = 0;
+		if (this.posY + this.tamY/2 > alturaMapa) {
+			this.posY = 0 - this.tamY/2;
 		}
-		if (this.posY < 0) {
-			this.posY = canvas.height;
+		if (this.posY + this.tamY/2 < 0) {
+			this.posY = alturaMapa - this.tamY/2;
 		}
 
 	}
