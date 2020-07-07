@@ -11,6 +11,11 @@ var alturaBloco = 50;
 
 var contexto = canvas.getContext("2d");
 
+//MOUSE
+var mouseX = 0;
+var mouseY = 0;
+var click = 0;
+
 //TECLAS
 //setas
 var teclaEsquerdaPressionada = false;
@@ -93,6 +98,21 @@ function trataTeclaSolta(evento) {
 	} else if (evento.keyCode === 70) {
 		teclaFPressionada = false;
 	}
+
+}
+
+function pegarPosicaoMouse(e) {
+	//menos 8 pra compensar as bordas do navegador
+	mouseX = e.clientX -8;
+	mouseY= e.clientY -8;
+}
+
+function mouseClick(event){
+	click = true;
+}
+
+function mouseSolto(event){
+	click = false;
 }
 
 

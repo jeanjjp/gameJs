@@ -71,7 +71,7 @@ function gameLoop() {
 
 	//desenha menu
 	if (editorON) {
-		Util.desenhaMenuSuperior(larguraMapa, 30, fps, "#6497b1", "BLACK");
+		Util.desenhaMenuSuperior(larguraMapa, 30, fps, "#6497b1", "BLACK", mouseX, mouseY, click);
 		Util.desenhaMenuLateral(200, alturaMapa, "#6497b1");
 	}
 
