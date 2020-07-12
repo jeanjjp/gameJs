@@ -11,13 +11,19 @@ class Inimigo {
 		this.vida = vida;
 		this.antes = new Date().getTime();
 		this.tempo = 0;
+		this.inimigoSelecionado = false;
 	}
 
 
 	atualizaInimigo() {
 		//faz o inimigo andar
-		this.posX += this.velX;
-		this.posY += this.velY;
+		if (!editorON) {
+			this.posX += this.velX;
+			this.posY += this.velY;
+			this.posX += this.velX;
+			this.posY += this.velY;
+		}
+
 		//colide com as bordas da tela
 		if (this.posX + this.tamX / 2 > larguraMapa) {
 			this.posX = 0 - this.tamX / 2;
@@ -37,6 +43,17 @@ class Inimigo {
 			this.vida = false;
 		}
 
+		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON) {
+		 this.inimigoSelecionado = true;
+		}
+		
+		if(this.inimigoSelecionado){
+		   this.posX = mouseX - this.tamX / 2;
+			this.posY = mouseY - this.tamY / 2;
+			if(!click){
+			   this.inimigoSelecionado = false;
+			   }
+		   }
 	}
 
 	desenhaInimigo() {

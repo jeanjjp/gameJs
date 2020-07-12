@@ -5,14 +5,11 @@ var frames = 0;
 var fps = 0;
 var editorON = false;
 
+var criadorInimigo = new CriadorPersonagens(1040, 50, 20, 20, "RED", 1);
+
 var heroi = new Heroi(larguraMapa / 2 - 32, alturaMapa / 2 - 32, 64, 64, 1, 1, "WHITE", true);
 
 var arrayInimigo = [];
-var quantidadeInimigo = 20;
-for (var i = 0; i < quantidadeInimigo; i++) {
-	var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 20, 20, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true);
-	arrayInimigo.push(inimigo);
-}
 
 /*FUNÇÕES DO JOGO*/
 // Função que desenha todos os componentes do jogo a cada loop
@@ -31,11 +28,14 @@ function gameLoop() {
 
 	//entra e sai do modo editor
 	if (teclaShiftPressionada && teclaCPressionada) {
-		editorON = true;
-	} else if (teclaShiftPressionada && teclaFPressionada) {
-		editorON = false;
+		if (editorON) {
+			editorON = false;
+		} else {
+			editorON = true;
+		}
+		teclaCPressionada = false;
 	}
-	
+
 	// Limpa o tela
 	contexto.clearRect(0, 0, canvas.width, canvas.height);
 	// desenha bakground
@@ -43,25 +43,21 @@ function gameLoop() {
 
 
 
-	
-	
+
+
+
+
 
 	//  -----  \/  DESENHA  E ATUALIZA EM CIMA DO BACKGROUD ----- \/
 
 	heroi.desenhaHeroi();
 	heroi.atualizaHeroi();
 
-
-	if (editorON) {
-		for (var i = 0; i < arrayInimigo.length; i++) {
-			arrayInimigo[i].desenhaInimigo();
-		}
-	} else if (!editorON) {
-		for (var i = 0; i < arrayInimigo.length; i++) {
-			arrayInimigo[i].desenhaInimigo();
-			arrayInimigo[i].atualizaInimigo();
-		}
+	for (var i = 0; i < arrayInimigo.length; i++) {
+		arrayInimigo[i].desenhaInimigo();
+		arrayInimigo[i].atualizaInimigo();
 	}
+
 
 	//  -----  /\  DESENHA  E ATUALIZA EM CIMA DO BACKGROUD ----- /\
 
@@ -73,6 +69,8 @@ function gameLoop() {
 	if (editorON) {
 		Util.desenhaMenuSuperior(larguraMapa, 30, fps, "#6497b1", "BLACK", mouseX, mouseY, click);
 		Util.desenhaMenuLateral(200, alturaMapa, "#6497b1");
+		criadorInimigo.desenhaCriadorPersonagens();
+		criadorInimigo.atualizaCriadorPersonagens();
 	}
 
 }

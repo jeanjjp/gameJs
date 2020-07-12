@@ -37,7 +37,7 @@ class Util {
 		contexto.fillText(fps.toFixed(0) + " fps", 5, 15);
 		contexto.fillText(mouseX.toFixed(0) + " mouseX", 60, 15);
 		contexto.fillText(mouseY.toFixed(0) + " mouseY", 140, 15);
-		contexto.fillText("click: "+click, 220, 15);
+		contexto.fillText("click: " + click, 220, 15);
 		contexto.closePath();
 	}
 
@@ -50,5 +50,11 @@ class Util {
 		contexto.fill();
 		contexto.closePath();
 
+	}
+
+	static colide(posx1, posx2, posy1, posy2, tamX1, tamX2, tamY1, tamY2) {
+		if (!(posx1 + tamX1 < posx2 || posx1 > posx2 || posy1 + tamY1 < posy2 || posy1 > posy2)) {
+			return true;
+		}
 	}
 }
