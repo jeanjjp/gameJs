@@ -29,25 +29,25 @@ class Util {
 		contexto.rect(0, 0, largura, altura);
 		contexto.fillStyle = corMenu;
 		contexto.fill();
-
-
-		//desnha o texto FPS
-		contexto.fillStyle = corTexto;
-		contexto.font = "normal 10pt Arial";
-		contexto.fillText(fps.toFixed(0) + " fps", 5, 15);
-		contexto.fillText(mouseX.toFixed(0) + " mouseX", 60, 15);
-		contexto.fillText(mouseY.toFixed(0) + " mouseY", 140, 15);
-		contexto.fillText("click: " + click, 220, 15);
-		contexto.closePath();
 	}
 
-	static desenhaMenuLateral(largura, altura, corMenu) {
+	static desenhaMenuLateral(largura, altura, corMenu, textoMenu, corTexto, mouseX, mouseY, click) {
 
 		//desenha barra de menu
 		contexto.beginPath();
 		contexto.rect(larguraMapa, 0, largura, altura);
 		contexto.fillStyle = corMenu;
 		contexto.fill();
+		contexto.closePath();
+		
+		//desnha o texto FPS
+		contexto.fillStyle = corTexto;
+		contexto.font = "normal 10pt Arial";
+		contexto.fillText(textoMenu, 1080, 50);
+		contexto.fillText(fps.toFixed(0) + " fps", 1030, 870);
+		contexto.fillText(mouseX.toFixed(0) + " mouseX", 1030, 890);
+		contexto.fillText(mouseY.toFixed(0) + " mouseY", 1120, 890);
+		contexto.fillText("click: " + click, 1120, 870);
 		contexto.closePath();
 
 	}

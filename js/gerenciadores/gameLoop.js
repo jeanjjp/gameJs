@@ -4,12 +4,17 @@ var tempoAtualFps = 0;
 var frames = 0;
 var fps = 0;
 var editorON = false;
+var textoMenu = ""; 
+var menu1 = false;
+var menu2 = false;
 
-var criadorInimigo = new CriadorPersonagens(1040, 50, 20, 20, "RED", 1);
+var criadorInimigo = new CriadorPersonagens(1040, 64, 20, 20, "RED", 1);
+var arrayInimigo = [];
+
+var botao1 = new Botao(4, 5, 120, 20, "BLUE", 1, "Menu 1", "WHITE");
+var botao2 = new Botao(128, 5, 120, 20, "BLUE", 2, "Menu 2", "WHITE");
 
 var heroi = new Heroi(larguraMapa / 2 - 32, alturaMapa / 2 - 32, 64, 64, 1, 1, "WHITE", true);
-
-var arrayInimigo = [];
 
 /*FUNÇÕES DO JOGO*/
 // Função que desenha todos os componentes do jogo a cada loop
@@ -68,11 +73,18 @@ function gameLoop() {
 	//desenha menu
 	if (editorON) {
 		Util.desenhaMenuSuperior(larguraMapa, 30, fps, "#6497b1", "BLACK", mouseX, mouseY, click);
-		Util.desenhaMenuLateral(200, alturaMapa, "#6497b1");
-		criadorInimigo.desenhaCriadorPersonagens();
-		criadorInimigo.atualizaCriadorPersonagens();
-	}
+		Util.desenhaMenuLateral(200, alturaMapa, "#6497b1", textoMenu, "BLACK", mouseX, mouseY, click);
 
+		if (menu1) {
+			criadorInimigo.desenhaCriadorPersonagens();
+			criadorInimigo.atualizaCriadorPersonagens();
+		}
+		
+		botao1.desenhaBotao();
+		botao1.atualizaBotao();
+		botao2.desenhaBotao();
+		botao2.atualizaBotao();
+	}
 }
 
 
