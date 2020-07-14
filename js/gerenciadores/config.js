@@ -9,6 +9,8 @@ var alturaMapa = 896;
 var larguraBloco = 64;
 var alturaBloco = 64;
 
+var pastaRaizImg = "res/";
+
 var contexto = canvas.getContext("2d");
 
 //MOUSE

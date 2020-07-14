@@ -25,11 +25,11 @@ class Inimigo {
 		}
 
 		//colide com as bordas da tela
-		if (this.posX + this.tamX / 2 > larguraMapa) {
-			this.posX = 0 - this.tamX / 2;
+		if (this.posX + this.tamX > larguraMapa) {
+			this.posX = 0;
 		}
-		if (this.posX + this.tamX / 2 < 0) {
-			this.posX = larguraMapa - this.tamX / 2;
+		if (this.posX < 0) {
+			this.posX = larguraMapa - this.tamX;
 		}
 		if (this.posY + this.tamY / 2 > alturaMapa) {
 			this.posY = 0 - this.tamY / 2;
@@ -43,17 +43,20 @@ class Inimigo {
 			this.vida = false;
 		}
 
-		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON) {
-		 this.inimigoSelecionado = true;
+		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON && blocoSolto) {
+			this.inimigoSelecionado = true;
+			blocoSolto = false;
 		}
-		
-		if(this.inimigoSelecionado){
-		   this.posX = mouseX - this.tamX / 2;
-			this.posY = mouseY - this.tamY / 2;
-			if(!click){
-			   this.inimigoSelecionado = false;
-			   }
-		   }
+
+		if (this.inimigoSelecionado) {
+			this.posX = mouseX - this.tamX/2;
+			this.posY = mouseY - this.tamY/2;
+
+			if (!click) {
+				this.inimigoSelecionado = false;
+				blocoSolto = true;
+			}
+		}
 	}
 
 	desenhaInimigo() {

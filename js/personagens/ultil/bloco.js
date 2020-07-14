@@ -1,4 +1,4 @@
-class CriadorPersonagens {
+class Bloco {
 	constructor(posX, posY, tamX, tamY, cor, tipo, img) {
 
 		this.posX = posX;
@@ -8,33 +8,28 @@ class CriadorPersonagens {
 		this.cor = cor;
 		this.tipo = tipo;
 		this.img = img;
-
+		this.blocoSelecionado = false;
 	}
 
 
-	atualizaCriadorPersonagens() {
+	atualizaBloco() {
+		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON && blocoSolto) {
+			this.blocoSelecionado = true;
+			blocoSolto = false;
+		}
+		
+		if (this.blocoSelecionado) {
+			this.posX = mouseX - (mouseX % larguraBloco);
+			this.posY = mouseY - (mouseY % alturaBloco);
 
-		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && editorON && click) {
-
-			if (this.tipo == 1) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true);
-				arrayInimigo.push(inimigo);
-			} else if (this.tipo == 2) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, this.img);
-				arrayBlocos.push(bloco);
-			} else if (this.tipo == 3) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, this.img);
-				arrayBlocos.push(bloco);
-			}else if (this.tipo == 4) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, this.img);
-				arrayBlocos.push(bloco);
+			if (!click) {
+				this.blocoSelecionado = false;
+				blocoSolto = true;
 			}
-
-			click = false;
 		}
 	}
 
-	desenhaCriadorPersonagens() {
+	desenhaBloco() {
 
 		if (this.img !== null && this.img !== undefined) {
 			var img = new Image();
@@ -81,4 +76,10 @@ class CriadorPersonagens {
 	getTempo() {
 		return this.tempo;
 	}
+	
+	setBlocoSelecionado(onOff){
+		this.blocoSelecionado = onOff;
+	}
+
+
 }

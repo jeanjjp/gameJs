@@ -35,7 +35,7 @@ class Util {
 
 		//desenha barra de menu
 		contexto.beginPath();
-		contexto.rect(larguraMapa, 0, largura, altura);
+		contexto.rect(larguraMapa+1, 0, largura, altura);
 		contexto.fillStyle = corMenu;
 		contexto.fill();
 		contexto.closePath();
@@ -43,7 +43,7 @@ class Util {
 		//desnha o texto FPS
 		contexto.fillStyle = corTexto;
 		contexto.font = "normal 10pt Arial";
-		contexto.fillText(textoMenu, 1080, 50);
+		contexto.fillText(textoMenu, 1093, 50);
 		contexto.fillText(fps.toFixed(0) + " fps", 1030, 870);
 		contexto.fillText(mouseX.toFixed(0) + " mouseX", 1030, 890);
 		contexto.fillText(mouseY.toFixed(0) + " mouseY", 1120, 890);
