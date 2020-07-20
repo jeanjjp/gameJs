@@ -20,11 +20,95 @@ class Botao {
 			if (this.tipo == 1) {
 				menu1 = true;
 				menu2 = false;
+				menu4 = false;
+				menu5 = false;
+				menu6 = false;
+				menu7 = false;
+				menu8 = false;
+				menu3 = false;
 			} else if (this.tipo == 2) {
-				menu2 = true;
 				menu1 = false;
+				menu2 = true;
+				menu4 = false;
+				menu5 = false;
+				menu6 = false;
+				menu7 = false;
+				menu8 = false;
+				menu3 = false;
+			} else if (this.tipo == 3) {
+				menu1 = false;
+				menu2 = false;
+				menu4 = false;
+				menu5 = false;
+				menu6 = false;
+				menu7 = false;
+				menu8 = false;
+				menu3 = true;
+			} else if (this.tipo == 4) {
+				menu1 = false;
+				menu2 = false;
+				menu4 = true;
+				menu5 = false;
+				menu6 = false;
+				menu7 = false;
+				menu8 = false;
+				menu3 = false;
+			} else if (this.tipo == 5) {
+				menu1 = false;
+				menu2 = false;
+				menu4 = false;
+				menu5 = true;
+				menu6 = false;
+				menu7 = false;
+				menu8 = false;
+				menu3 = false;
+			} else if (this.tipo == 6) {
+				menu1 = false;
+				menu2 = false;
+				menu4 = false;
+				menu5 = false;
+				menu6 = true;
+				menu7 = false;
+				menu8 = false;
+				menu3 = false;
+			} else if (this.tipo == 7) {
+				menu1 = false;
+				menu2 = false;
+				menu4 = false;
+				menu5 = false;
+				menu6 = false;
+				menu7 = true;
+				menu8 = false;
+				menu3 = false;
+			} else if (this.tipo == 8) {
+				menu1 = false;
+				menu2 = false;
+				menu4 = false;
+				menu5 = false;
+				menu6 = false;
+				menu7 = false;
+				menu8 = true;
+				menu3 = false;
+			} else if (this.tipo == 9) {
+				camada1 = true;
+				camada2 = false;
+				camada3 = false;
+			} else if (this.tipo == 10) {
+				camada1 = false;
+				camada2 = true;
+				camada3 = false;
+			} else if (this.tipo == 11) {
+				camada1 = false;
+				camada2 = false;
+				camada3 = true;
 			}
-			textoMenu = this.texto
+			
+			if(this.tipo > 8){
+			   textoCamada = this.texto;
+			} else{
+				textoMenu = this.texto;
+			}
+			
 			click = false;
 		}
 	}

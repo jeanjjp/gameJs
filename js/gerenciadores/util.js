@@ -10,7 +10,7 @@ class Util {
 		contexto.closePath();
 	}
 
-	static desenhaMenuSuperior(largura, altura, fps, corMenu, corTexto, mouseX, mouseY, click) {
+	static desenhaMenuSuperior(largura, altura, corMenu) {
 
 		//desenha linhas horizontais
 		for (var i = 0; i < alturaMapa; i += alturaBloco) {
@@ -31,19 +31,20 @@ class Util {
 		contexto.fill();
 	}
 
-	static desenhaMenuLateral(largura, altura, corMenu, textoMenu, corTexto, mouseX, mouseY, click) {
+	static desenhaMenuLateral(largura, altura, corMenu, textoMenu, corTexto, mouseX, mouseY, click, textoPiso) {
 
 		//desenha barra de menu
 		contexto.beginPath();
-		contexto.rect(larguraMapa+1, 0, largura, altura);
+		contexto.rect(larguraMapa + 1, 0, largura, altura);
 		contexto.fillStyle = corMenu;
 		contexto.fill();
 		contexto.closePath();
-		
+
 		//desnha o texto FPS
 		contexto.fillStyle = corTexto;
 		contexto.font = "normal 10pt Arial";
-		contexto.fillText(textoMenu, 1093, 50);
+		contexto.fillText(textoMenu, 1093, 100);
+		contexto.fillText(textoPiso, 1093, 20);
 		contexto.fillText(fps.toFixed(0) + " fps", 1030, 870);
 		contexto.fillText(mouseX.toFixed(0) + " mouseX", 1030, 890);
 		contexto.fillText(mouseY.toFixed(0) + " mouseY", 1120, 890);
@@ -56,5 +57,21 @@ class Util {
 		if (!(posx1 + tamX1 < posx2 || posx1 > posx2 || posy1 + tamY1 < posy2 || posy1 > posy2)) {
 			return true;
 		}
+	}
+
+	static salvarMapa(arrayBlocos) {
+		
+		let titulo = "dataMap";
+		let texto = "";
+
+		for (var i = 0; i < arrayBlocos.length; i++) {
+			texto += arrayBlocos[i].getPosX() + ";" + arrayBlocos[i].getPosY() + ";" + arrayBlocos[i].getTamX() + ";" + arrayBlocos[i].getTamY() + ";" + arrayBlocos[i].getCor() + ";" + arrayBlocos[i].getTipo() + ";" + arrayBlocos[i].getImg() + ";" + arrayBlocos[i].getCamada() + ";" + "\n" ;
+		}
+
+		let blob = new Blob([texto], {
+			type: "text/plain;charset=utf-8"
+		});
+		saveAs(blob, titulo + ".txt");
+
 	}
 }

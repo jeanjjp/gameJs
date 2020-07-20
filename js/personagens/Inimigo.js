@@ -1,5 +1,5 @@
 class Inimigo {
-	constructor(posX, posY, tamX, tamY, velX, velY, cor, vida) {
+	constructor(posX, posY, tamX, tamY, velX, velY, cor, vida, camada) {
 
 		this.posX = posX;
 		this.posY = posY;
@@ -12,6 +12,7 @@ class Inimigo {
 		this.antes = new Date().getTime();
 		this.tempo = 0;
 		this.inimigoSelecionado = false;
+		this.camada = camada;
 	}
 
 
@@ -104,5 +105,8 @@ class Inimigo {
 	}
 	getTempo() {
 		return this.tempo;
+	}
+	getCamada() {
+		return this.camada;
 	}
 }

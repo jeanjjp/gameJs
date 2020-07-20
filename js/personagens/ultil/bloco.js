@@ -1,5 +1,5 @@
 class Bloco {
-	constructor(posX, posY, tamX, tamY, cor, tipo, img) {
+	constructor(posX, posY, tamX, tamY, cor, tipo, img, camada) {
 
 		this.posX = posX;
 		this.posY = posY;
@@ -9,18 +9,25 @@ class Bloco {
 		this.tipo = tipo;
 		this.img = img;
 		this.blocoSelecionado = false;
+		this.camada = camada;
 	}
 
 
 	atualizaBloco() {
+		
 		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON && blocoSolto) {
 			this.blocoSelecionado = true;
 			blocoSolto = false;
 		}
-		
+
 		if (this.blocoSelecionado) {
-			this.posX = mouseX - (mouseX % larguraBloco);
-			this.posY = mouseY - (mouseY % alturaBloco);
+			if (this.tipo == 1) {
+				this.posX = mouseX - (mouseX % larguraBloco);
+				this.posY = mouseY - (mouseY % alturaBloco);
+			} else {
+				this.posX = mouseX - (this.tamX/2);
+				this.posY = mouseY - (this.tamY/2);
+			}
 
 			if (!click) {
 				this.blocoSelecionado = false;
@@ -70,14 +77,17 @@ class Bloco {
 	getCor() {
 		return this.cor;
 	}
-	getVida() {
-		return this.vida;
+	getImg() {
+		return this.img;
 	}
-	getTempo() {
-		return this.tempo;
+	getTipo() {
+		return this.tipo;
 	}
-	
-	setBlocoSelecionado(onOff){
+	getCamada() {
+		return this.camada;
+	}
+
+	setBlocoSelecionado(onOff) {
 		this.blocoSelecionado = onOff;
 	}
 
