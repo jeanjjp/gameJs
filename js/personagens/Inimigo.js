@@ -1,5 +1,5 @@
 class Inimigo {
-	constructor(posX, posY, tamX, tamY, velX, velY, cor, vida, camada) {
+	constructor(posX, posY, tamX, tamY, velX, velY, cor, vida, camada, img) {
 
 		this.posX = posX;
 		this.posY = posY;
@@ -13,6 +13,7 @@ class Inimigo {
 		this.tempo = 0;
 		this.inimigoSelecionado = false;
 		this.camada = camada;
+		this.img = img;
 	}
 
 
@@ -50,8 +51,8 @@ class Inimigo {
 		}
 
 		if (this.inimigoSelecionado) {
-			this.posX = mouseX - this.tamX/2;
-			this.posY = mouseY - this.tamY/2;
+			this.posX = mouseX - this.tamX / 2;
+			this.posY = mouseY - this.tamY / 2;
 
 			if (!click) {
 				this.inimigoSelecionado = false;
@@ -62,15 +63,20 @@ class Inimigo {
 
 	desenhaInimigo() {
 
-		// var img = new Image();
-		// img.src = 'img/inimigo.png';
-		// contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
-		contexto.beginPath();
-		//desenha o inimigo
-		contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
-		contexto.fillStyle = this.cor;
-		contexto.fill();
-		contexto.closePath();
+		if (this.img !== null && this.img !== undefined) {
+			var img = new Image();
+			img.src = pastaRaizImg + this.img;
+			contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
+			contexto.beginPath();
+			contexto.fill();
+			contexto.closePath();
+		} else {
+			contexto.beginPath();
+			contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
+			contexto.fillStyle = this.cor;
+			contexto.fill();
+			contexto.closePath();
+		}
 
 
 
@@ -108,5 +114,11 @@ class Inimigo {
 	}
 	getCamada() {
 		return this.camada;
+	}
+	getVida() {
+		return this.vida;
+	}
+	getImg() {
+		return this.img;
 	}
 }

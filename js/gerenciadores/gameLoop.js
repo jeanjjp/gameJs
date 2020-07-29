@@ -12,46 +12,52 @@ var menu5 = false;
 var menu6 = false;
 var menu7 = false;
 var menu8 = false;
+var menu9 = false;
+var menu10 = false;
 var camada1 = true;
 var camada2 = false;
 var camada3 = false;
 var editorON = false;
-var posInicialMenu = 4;
-var posInicialCriadoX = 1045;
+var posInicialMenu = 3;
+var posInicialCriadoX = 842;
 var posInicialCriadoY = 130;
 var textoMenu = "Menu 1";
 var textoCamada = "Piso 1";
 
-var botaoCamada1 = new Botao(1030, 40, 50, 20, "BLUE", 9, "Piso 1", "WHITE");
-var botaoCamada2 = new Botao(1088, 40, 50, 20, "BLUE", 10, "Piso 2", "WHITE");
-var botaoCamada3 = new Botao(1145, 40, 50, 20, "BLUE", 11, "Piso 3", "WHITE");
+var botaoCamada1 = new Botao(840, 40, 50, 20, "BLUE", 11, "Piso 1", "WHITE");
+var botaoCamada2 = new Botao(906, 40, 50, 20, "BLUE", 12, "Piso 2", "WHITE");
+var botaoCamada3 = new Botao(970, 40, 50, 20, "BLUE", 13, "Piso 3", "WHITE");
 
 var arrayInimigo = [];
 var arrayBlocos = [];
 var arrayBotao = [];
 var arrayCriador = [];
 
-for (var i = 0; i < 8; i++) {
-	var botao = new Botao(posInicialMenu, 5, 120, 20, "BLUE", (i + 1), "Menu " + (i + 1), "WHITE");
+arrayBotao.push(botaoCamada1);
+arrayBotao.push(botaoCamada2);
+arrayBotao.push(botaoCamada3);
+
+for (var i = 0; i < 10; i++) {
+	var botao = new Botao(posInicialMenu, 5, 80, 20, "BLUE", (i + 1), "Menu " + (i + 1), "WHITE");
 	arrayBotao.push(botao);
-	posInicialMenu += 128;
+	posInicialMenu += 83;
 }
 
-for (var i = 1; i <= 100; i++) {
-	var criador = new CriadorPersonagens(posInicialCriadoX, posInicialCriadoY, 60, 60, "RED", i);
+for (var i = 1; i <= 112; i++) {
+	var criador = new CriadorPersonagens(posInicialCriadoX, posInicialCriadoY, 40, 40, "RED", i);
 	arrayCriador.push(criador);
-	if (i % 2 == 0) {
-		posInicialCriadoX -= 75;
-		posInicialCriadoY += 71;
+	if (i % 4 == 0) {
+		posInicialCriadoX = 842;
+		posInicialCriadoY += 51;
 	} else {
-		posInicialCriadoX += 75
+		posInicialCriadoX += 47
 	}
-	if (i % 20 == 0) {
+	if (i % 40 == 0) {
 		posInicialCriadoY = 130;
 	}
 }
 
-var heroi = new Heroi(larguraMapa / 2 - 32, alturaMapa / 2 - 32, 64, 64, 5, 5, "WHITE", true);
+var heroi = new Heroi(larguraMapa / 2 - 32, alturaMapa / 2 - 32, 64, 64, 5, 5, "WHITE", true, "hero.png");
 
 /*FUNÇÕES DO JOGO*/
 // Função que desenha todos os componentes do jogo a cada loop
@@ -81,7 +87,7 @@ function gameLoop() {
 	
 	if(teclaGPressionada){
 		teclaGPressionada = false;
-		Util.salvarMapa(arrayBlocos);   
+		Util.salvarMapa(arrayBlocos, arrayInimigo);   
 	}
 
 	// Limpa o tela
@@ -126,9 +132,15 @@ function gameLoop() {
 		arrayInimigo[i].atualizaInimigo();
 	}
 	
+	//deleta blocos e inimigos
 	for (var i = 0; i < arrayBlocos.length; i++) {
 		if (Util.colide(arrayBlocos[i].getPosX(), mouseX, arrayBlocos[i].getPosY(), mouseY, arrayBlocos[i].getTamX(), 0, arrayBlocos[i].getTamY(), 0)  && editorON && teclaFPressionada) {
 			arrayBlocos.splice(i, 1);
+		}
+	}
+	for (var i = 0; i < arrayInimigo.length; i++) {
+		if (Util.colide(arrayInimigo[i].getPosX(), mouseX, arrayInimigo[i].getPosY(), mouseY, arrayInimigo[i].getTamX(), 0, arrayInimigo[i].getTamY(), 0)  && editorON && teclaFPressionada) {
+			arrayInimigo.splice(i, 1);
 		}
 	}
 
@@ -143,51 +155,40 @@ function gameLoop() {
 		Util.desenhaMenuSuperior(larguraMapa, 30, "#6497b1");
 		Util.desenhaMenuLateral(200, alturaMapa, "BLACK", textoMenu, "WHITE", mouseX, mouseY, click, textoCamada);
 
-		botaoCamada1.desenhaBotao();
-		botaoCamada1.atualizaBotao();
-		botaoCamada2.desenhaBotao();
-		botaoCamada2.atualizaBotao();
-		botaoCamada3.desenhaBotao();
-		botaoCamada3.atualizaBotao();
-
 		for (var i = 0; i < arrayBotao.length; i++) {
 			arrayBotao[i].desenhaBotao();
 			arrayBotao[i].atualizaBotao();
 		}
 
 		if (menu1) {
-			for (var i = 0; i < 20; i++) {
+			for (var i = 0; i < 40; i++) {
 				arrayCriador[i].desenhaCriadorPersonagens();
 				arrayCriador[i].atualizaCriadorPersonagens();
 			}
 		}
 		if (menu2) {
-			for (var i = 20; i < 40; i++) {
+			for (var i = 40; i < 80; i++) {
 				arrayCriador[i].desenhaCriadorPersonagens();
 				arrayCriador[i].atualizaCriadorPersonagens();
 			}
 		}
 		if (menu3) {
-			for (var i = 40; i < 60; i++) {
+			for (var i = 80; i < 120; i++) {
 				arrayCriador[i].desenhaCriadorPersonagens();
 				arrayCriador[i].atualizaCriadorPersonagens();
 			}
 		}
 		if (menu4) {
-			for (var i = 60; i < 80; i++) {
-				arrayCriador[i].desenhaCriadorPersonagens();
-				arrayCriador[i].atualizaCriadorPersonagens();
-			}
+			
 		}
 		if (menu5) {
-			for (var i = 80; i < 100; i++) {
-				arrayCriador[i].desenhaCriadorPersonagens();
-				arrayCriador[i].atualizaCriadorPersonagens();
-			}
+			
+		}
+		if (menu6) {
+			
 		}
 
 	}
-	salvarMapa = true;
 }
 
 

@@ -3,8 +3,8 @@ var canvas = window.document.getElementById("canvas-jogo");
 canvas.width = 1200;
 canvas.height = 900;
 
-var larguraMapa = 1024;
-var alturaMapa = 896;
+var larguraMapa = 832;
+var alturaMapa = 704;
 
 var larguraBloco = 64;
 var alturaBloco = 64;

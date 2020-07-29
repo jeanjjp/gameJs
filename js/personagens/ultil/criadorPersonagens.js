@@ -19,8 +19,6 @@ class CriadorPersonagens {
 			if (this.tipo == 1) {
 				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso1.png", textoCamada);
 				arrayBlocos.push(bloco);
-				//var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada);
-				//arrayInimigo.push(inimigo);
 			} else if (this.tipo == 2) {
 				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso2.png", textoCamada);
 				arrayBlocos.push(bloco);
@@ -280,7 +278,7 @@ class CriadorPersonagens {
 				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao7.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 88) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao8.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "construcoes/construcao8.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 89) {
 				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao9.png", textoCamada);
@@ -292,10 +290,10 @@ class CriadorPersonagens {
 				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao11.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 92) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao12.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "construcoes/construcao12.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 93) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao13.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "construcoes/construcao13.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 94) {
 				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao14.png", textoCamada);
@@ -318,6 +316,43 @@ class CriadorPersonagens {
 			}else if (this.tipo == 100) {
 				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao20.png", textoCamada);
 				arrayBlocos.push(bloco);
+				//INIMIGOS OU NPC//
+			}else if (this.tipo == 101) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc1.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 102) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc2.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 103) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc3.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 104) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc4.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 105) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc5.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 106) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc6.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 107) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc7.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 108) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc8.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 109) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc9.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 110) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc10.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 111) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc11.png");
+				arrayInimigo.push(inimigo);
+			}else if (this.tipo == 112) {
+				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc12.png");
+				arrayInimigo.push(inimigo);
 			}
 
 			click = false;
@@ -528,6 +563,30 @@ class CriadorPersonagens {
 			img.src = pastaRaizImg + "construcoes/construcao19.png";
 		}else if (this.tipo == 100) {
 			img.src = pastaRaizImg + "construcoes/construcao20.png";
+		} else if (this.tipo == 101) {
+			img.src = pastaRaizImg + "npc/npc1.png";
+		} else if (this.tipo == 102) {
+			img.src = pastaRaizImg + "npc/npc2.png";
+		} else if (this.tipo == 103) {
+			img.src = pastaRaizImg + "npc/npc3.png";
+		} else if (this.tipo == 104) {
+			img.src = pastaRaizImg + "npc/npc4.png";
+		} else if (this.tipo == 105) {
+			img.src = pastaRaizImg + "npc/npc5.png";
+		} else if (this.tipo == 106) {
+			img.src = pastaRaizImg + "npc/npc6.png";
+		}else if (this.tipo == 107) {
+			img.src = pastaRaizImg + "npc/npc7.png";
+		}else if (this.tipo == 108) {
+			img.src = pastaRaizImg + "npc/npc8.png";
+		}else if (this.tipo == 109) {
+			img.src = pastaRaizImg + "npc/npc9.png";
+		}else if (this.tipo == 110) {
+			img.src = pastaRaizImg + "npc/npc10.png";
+		}else if (this.tipo == 111) {
+			img.src = pastaRaizImg + "npc/npc11.png";
+		}else if (this.tipo == 112) {
+			img.src = pastaRaizImg + "npc/npc12.png";
 		}  else {
 			img.src = pastaRaizImg + "hero.png";
 		}

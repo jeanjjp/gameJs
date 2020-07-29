@@ -43,12 +43,12 @@ class Util {
 		//desnha o texto FPS
 		contexto.fillStyle = corTexto;
 		contexto.font = "normal 10pt Arial";
-		contexto.fillText(textoMenu, 1093, 100);
-		contexto.fillText(textoPiso, 1093, 20);
-		contexto.fillText(fps.toFixed(0) + " fps", 1030, 870);
-		contexto.fillText(mouseX.toFixed(0) + " mouseX", 1030, 890);
-		contexto.fillText(mouseY.toFixed(0) + " mouseY", 1120, 890);
-		contexto.fillText("click: " + click, 1120, 870);
+		contexto.fillText(textoMenu, 910, 100);
+		contexto.fillText(textoPiso, 910, 20);
+		contexto.fillText(fps.toFixed(0) + " fps", 850, 670);
+		contexto.fillText(mouseX.toFixed(0) + " mouseX", 850, 690);
+		contexto.fillText(mouseY.toFixed(0) + " mouseY", 950, 690);
+		contexto.fillText("click: " + click, 950, 670);
 		contexto.closePath();
 
 	}
@@ -59,13 +59,17 @@ class Util {
 		}
 	}
 
-	static salvarMapa(arrayBlocos) {
+	static salvarMapa(arrayBlocos, arrayInimigo) {
 		
 		let titulo = "dataMap";
 		let texto = "";
 
 		for (var i = 0; i < arrayBlocos.length; i++) {
-			texto += arrayBlocos[i].getPosX() + ";" + arrayBlocos[i].getPosY() + ";" + arrayBlocos[i].getTamX() + ";" + arrayBlocos[i].getTamY() + ";" + arrayBlocos[i].getCor() + ";" + arrayBlocos[i].getTipo() + ";" + arrayBlocos[i].getImg() + ";" + arrayBlocos[i].getCamada() + ";" + "\n" ;
+			texto += "TipoBloco;" + arrayBlocos[i].getPosX() + ";" + arrayBlocos[i].getPosY() + ";" + arrayBlocos[i].getTamX() + ";" + arrayBlocos[i].getTamY() + ";" + arrayBlocos[i].getCor() + ";" + arrayBlocos[i].getTipo() + ";" + arrayBlocos[i].getImg() + ";" + arrayBlocos[i].getCamada() + ";" + "\n" ;
+		}
+		
+		for (var i = 0; i < arrayInimigo.length; i++) {
+			texto += "TipoNpc;" + arrayInimigo[i].getPosX() + ";" + arrayInimigo[i].getPosY() + ";" + arrayInimigo[i].getTamX() + ";" + arrayInimigo[i].getTamY() + ";" + arrayInimigo[i].getVelX() + ";" + arrayInimigo[i].getVelY() + ";" + arrayInimigo[i].getCor() + ";" + arrayInimigo[i].getVida() + ";" +  arrayInimigo[i].getCamada() + ";" + arrayInimigo[i].getImg() +"\n" ;
 		}
 
 		let blob = new Blob([texto], {

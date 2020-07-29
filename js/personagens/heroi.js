@@ -1,5 +1,5 @@
 class Heroi {
-	constructor(posX, posY, tamX, tamY, velX, velY, cor, vida) {
+	constructor(posX, posY, tamX, tamY, velX, velY, cor, vida, img) {
 
 		this.posX = posX;
 		this.posY = posY;
@@ -10,6 +10,7 @@ class Heroi {
 		this.cor = cor;
 		this.vida = vida;
 		this.amnimacaoMovimento = true;
+		this.img = img;
 	}
 
 
@@ -72,15 +73,20 @@ class Heroi {
 
 	desenhaHeroi() {
 
-		var img = new Image();
-		img.src = "res/hero.png";
-		contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
-		contexto.beginPath();
-		//desenha o heroi
-		//contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
-		//contexto.fillStyle = this.cor;
-		contexto.fill();
-		contexto.closePath();
+		if (this.img !== null && this.img !== undefined) {
+			var img = new Image();
+			img.src = pastaRaizImg + this.img;
+			contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
+			contexto.beginPath();
+			contexto.fill();
+			contexto.closePath();
+		} else {
+			contexto.beginPath();
+			contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
+			contexto.fillStyle = this.cor;
+			contexto.fill();
+			contexto.closePath();
+		}
 
 
 	}
