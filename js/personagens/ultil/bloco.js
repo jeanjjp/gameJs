@@ -21,7 +21,7 @@ class Bloco {
 		}
 
 		if (this.blocoSelecionado) {
-			if (this.tipo == 1) {
+			if (!teclaShiftPressionada) {
 				this.posX = mouseX - (mouseX % larguraBloco);
 				this.posY = mouseY - (mouseY % alturaBloco);
 			} else {

@@ -88,6 +88,7 @@ function gameLoop() {
 	if(teclaGPressionada){
 		teclaGPressionada = false;
 		Util.salvarMapa(arrayBlocos, arrayInimigo);   
+		//Util.carregarMapa();
 	}
 
 	// Limpa o tela

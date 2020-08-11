@@ -20,301 +20,301 @@ class CriadorPersonagens {
 				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso1.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 2) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso2.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "piso/piso2.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 3) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso3.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 3, "piso/piso3.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 4) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso4.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 4, "piso/piso4.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 5) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso5.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 5, "piso/piso5.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 6) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso6.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 6, "piso/piso6.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 7) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso7.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 7, "piso/piso7.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 8) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso8.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 8, "piso/piso8.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 9) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso9.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 9, "piso/piso9.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 10) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso10.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 10, "piso/piso10.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 11) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso11.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 11, "piso/piso11.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 12) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso12.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 12, "piso/piso12.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 13) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso13.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 13, "piso/piso13.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 14) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso14.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 14, "piso/piso14.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 15) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso15.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 15, "piso/piso15.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 16) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso16.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 16, "piso/piso16.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 17) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso17.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 17, "piso/piso17.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 18) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso18.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 18, "piso/piso18.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 19) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso19.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 19, "piso/piso19.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 20) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso20.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 20, "piso/piso20.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 21) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso21.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 21, "piso/piso21.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 22) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso22.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 22, "piso/piso22.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 23) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso23.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 23, "piso/piso23.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 24) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso24.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 24, "piso/piso24.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 25) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso25.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 25, "piso/piso25.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 26) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso26.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 26, "piso/piso26.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 27) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso27.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 27, "piso/piso27.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 28) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso28.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 28, "piso/piso28.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 29) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso29.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 29, "piso/piso29.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 30) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso30.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 30, "piso/piso30.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 31) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso31.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 31, "piso/piso31.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 32) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso32.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 32, "piso/piso32.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 33) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso33.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 33, "piso/piso33.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 34) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso34.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 34, "piso/piso34.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 35) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso35.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 35, "piso/piso35.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 36) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso36.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 36, "piso/piso36.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 37) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso37.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 37, "piso/piso37.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 38) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso38.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 38, "piso/piso38.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 39) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso39.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 39, "piso/piso39.png", textoCamada);
 				arrayBlocos.push(bloco);
 			} else if (this.tipo == 40) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "piso/piso40.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 40, "piso/piso40.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 41) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada1.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 41, "estrada/estrada1.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 42) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada2.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 42, "estrada/estrada2.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 43) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada3.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 43, "estrada/estrada3.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 44) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada4.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 44, "estrada/estrada4.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 45) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada5.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 45, "estrada/estrada5.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 46) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada6.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 46, "estrada/estrada6.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 47) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada7.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 47, "estrada/estrada7.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 48) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada8.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 48, "estrada/estrada8.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 49) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada9.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 49, "estrada/estrada9.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 50) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada10.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 50, "estrada/estrada10.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 51) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada11.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 51, "estrada/estrada11.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 52) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada12.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 52, "estrada/estrada12.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 53) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada13.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 53, "estrada/estrada13.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 54) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada14.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 54, "estrada/estrada14.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 55) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "estrada/estrada15.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 55, "estrada/estrada15.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 56) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza21.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 56, "natureza/natureza21.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 57) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza22.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 57, "natureza/natureza22.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 58) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "construcoes/construcao21.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 58, "construcoes/construcao21.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 59) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "construcoes/construcao22.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 59, "construcoes/construcao22.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 60) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "construcoes/construcao23.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 60, "construcoes/construcao23.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 61) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza1.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 61, "natureza/natureza1.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 62) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza2.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 62, "natureza/natureza2.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 63) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza3.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 63, "natureza/natureza3.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 64) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza4.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 64, "natureza/natureza4.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 65) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza5.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 65, "natureza/natureza5.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 66) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza6.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 66, "natureza/natureza6.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 67) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza7.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 67, "natureza/natureza7.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 68) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza8.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 68, "natureza/natureza8.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 69) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza9.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 69, "natureza/natureza9.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 70) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza10.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 70, "natureza/natureza10.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 71) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza11.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 71, "natureza/natureza11.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 72) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza12.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 72, "natureza/natureza12.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 73) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza13.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 73, "natureza/natureza13.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 74) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza14.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 74, "natureza/natureza14.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 75) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza15.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 75, "natureza/natureza15.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 76) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza16.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 76, "natureza/natureza16.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 77) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza17.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 77, "natureza/natureza17.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 78) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza18.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 78, "natureza/natureza18.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 79) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza19.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 79, "natureza/natureza19.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 80) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "natureza/natureza20.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 80, "natureza/natureza20.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 81) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao1.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 81, "construcoes/construcao1.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 82) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao2.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 82, "construcoes/construcao2.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 83) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao3.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 83, "construcoes/construcao3.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 84) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao4.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 84, "construcoes/construcao4.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 85) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao5.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 85, "construcoes/construcao5.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 86) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao6.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 86, "construcoes/construcao6.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 87) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao7.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 87, "construcoes/construcao7.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 88) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "construcoes/construcao8.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 88, "construcoes/construcao8.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 89) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao9.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 89, "construcoes/construcao9.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 90) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao10.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 90, "construcoes/construcao10.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 91) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao11.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 91, "construcoes/construcao11.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 92) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "construcoes/construcao12.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 92, "construcoes/construcao12.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 93) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 2, "construcoes/construcao13.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 93, "construcoes/construcao13.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 94) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao14.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 94, "construcoes/construcao14.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 95) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao15.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 95, "construcoes/construcao15.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 96) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao16.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 96, "construcoes/construcao16.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 97) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao17.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 97, "construcoes/construcao17.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 98) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao18.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 98, "construcoes/construcao18.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 99) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao19.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 99, "construcoes/construcao19.png", textoCamada);
 				arrayBlocos.push(bloco);
 			}else if (this.tipo == 100) {
-				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 1, "construcoes/construcao20.png", textoCamada);
+				var bloco = new Bloco(heroi.getPosX(), heroi.getPosY(), 64, 64, "RED", 100, "construcoes/construcao20.png", textoCamada);
 				arrayBlocos.push(bloco);
 				//INIMIGOS OU NPC//
 			}else if (this.tipo == 101) {
@@ -594,7 +594,14 @@ class CriadorPersonagens {
 		contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
 		contexto.beginPath();
 		contexto.fill();
+		contexto.fillStyle = "WHITE";
+		contexto.font = "normal 9pt Arial";
+		contexto.fillText(this.tipo, this.posX, this.posY);
+		//contexto.strokeStyle = "WHITE";
+		//contexto.rect(this.posX, this.posY, this.tamX, this.tamY)
+		//contexto.stroke();
 		contexto.closePath();
+	
 
 	}
 

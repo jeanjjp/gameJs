@@ -60,22 +60,26 @@ class Util {
 	}
 
 	static salvarMapa(arrayBlocos, arrayInimigo) {
-		
+
 		let titulo = "dataMap";
 		let texto = "";
 
 		for (var i = 0; i < arrayBlocos.length; i++) {
-			texto += "TipoBloco;" + arrayBlocos[i].getPosX() + ";" + arrayBlocos[i].getPosY() + ";" + arrayBlocos[i].getTamX() + ";" + arrayBlocos[i].getTamY() + ";" + arrayBlocos[i].getCor() + ";" + arrayBlocos[i].getTipo() + ";" + arrayBlocos[i].getImg() + ";" + arrayBlocos[i].getCamada() + ";" + "\n" ;
+			texto += "TipoBloco;" + arrayBlocos[i].getPosX() + ";" + arrayBlocos[i].getPosY() + ";" + arrayBlocos[i].getTamX() + ";" + arrayBlocos[i].getTamY() + ";" + arrayBlocos[i].getCor() + ";" + arrayBlocos[i].getTipo() + ";" + arrayBlocos[i].getImg() + ";" + arrayBlocos[i].getCamada() + ";" + "\n";
 		}
-		
+
 		for (var i = 0; i < arrayInimigo.length; i++) {
-			texto += "TipoNpc;" + arrayInimigo[i].getPosX() + ";" + arrayInimigo[i].getPosY() + ";" + arrayInimigo[i].getTamX() + ";" + arrayInimigo[i].getTamY() + ";" + arrayInimigo[i].getVelX() + ";" + arrayInimigo[i].getVelY() + ";" + arrayInimigo[i].getCor() + ";" + arrayInimigo[i].getVida() + ";" +  arrayInimigo[i].getCamada() + ";" + arrayInimigo[i].getImg() +"\n" ;
+			texto += "TipoNpc;" + arrayInimigo[i].getPosX() + ";" + arrayInimigo[i].getPosY() + ";" + arrayInimigo[i].getTamX() + ";" + arrayInimigo[i].getTamY() + ";" + arrayInimigo[i].getVelX() + ";" + arrayInimigo[i].getVelY() + ";" + arrayInimigo[i].getCor() + ";" + arrayInimigo[i].getVida() + ";" + arrayInimigo[i].getCamada() + ";" + arrayInimigo[i].getImg() + "\n";
 		}
 
 		let blob = new Blob([texto], {
 			type: "text/plain;charset=utf-8"
 		});
 		saveAs(blob, titulo + ".txt");
+
+	}
+
+	static carregarMapa() {
 
 	}
 }
