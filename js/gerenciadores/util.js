@@ -80,6 +80,9 @@ class Util {
 	}
 
 	static carregarMapa() {
-
+	//cfiar funcao para carregar jogo
+	//validar conteudo vazio
+	  var txt = document.getElementById('filecontents');
+		alert(txt.innerHTML);
 	}
 }

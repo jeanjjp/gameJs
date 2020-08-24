@@ -36,6 +36,7 @@ var teclaDPressionada = false;
 var teclaCPressionada = false;
 var teclaFPressionada = false;
 var teclaGPressionada = false;
+var teclaLPressionada = false;
 
 
 //Funções que tratam os eventos keydown e keyup
@@ -70,6 +71,8 @@ function trataTeclaPrecionada(evento) {
 		teclaFPressionada = true;
 	} else if (evento.keyCode === 71) {
 		teclaGPressionada = true;
+	} else if (evento.keyCode === 76) {
+		teclaLPressionada = true;
 	}
 }
 
@@ -104,21 +107,23 @@ function trataTeclaSolta(evento) {
 		teclaFPressionada = false;
 	} else if (evento.keyCode === 71) {
 		teclaGPressionada = false;
+	} else if (evento.keyCode === 76) {
+		teclaLPressionada = false;
 	}
 
 }
 
 function pegarPosicaoMouse(e) {
 	//menos 8 pra compensar as bordas do navegador
-	mouseX = e.clientX -8;
-	mouseY= e.clientY -8;
+	mouseX = e.clientX - 8;
+	mouseY = e.clientY - 8;
 }
 
-function mouseClick(event){
+function mouseClick(event) {
 	click = true;
 }
 
-function mouseSolto(event){
+function mouseSolto(event) {
 	click = false;
 }
 

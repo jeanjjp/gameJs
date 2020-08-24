@@ -85,10 +85,15 @@ function gameLoop() {
 		teclaCPressionada = false;
 	}
 	
+	//salvar jogo
 	if(teclaGPressionada){
 		teclaGPressionada = false;
 		Util.salvarMapa(arrayBlocos, arrayInimigo);   
-		//Util.carregarMapa();
+	}
+	//carregar jogo
+	if(teclaLPressionada){
+		teclaLPressionada = false; 
+		Util.carregarMapa();
 	}
 
 	// Limpa o tela
