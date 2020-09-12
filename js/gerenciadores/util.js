@@ -65,11 +65,11 @@ class Util {
 		let texto = "";
 
 		for (var i = 0; i < arrayBlocos.length; i++) {
-			texto += "TipoBloco;" + arrayBlocos[i].getPosX() + ";" + arrayBlocos[i].getPosY() + ";" + arrayBlocos[i].getTamX() + ";" + arrayBlocos[i].getTamY() + ";" + arrayBlocos[i].getCor() + ";" + arrayBlocos[i].getTipo() + ";" + arrayBlocos[i].getImg() + ";" + arrayBlocos[i].getCamada() + ";" + "\n";
+			texto += "TipoBloco;" + arrayBlocos[i].getPosX() + ";" + arrayBlocos[i].getPosY() + ";" + arrayBlocos[i].getTamX() + ";" + arrayBlocos[i].getTamY() + ";" + arrayBlocos[i].getCor() + ";" + arrayBlocos[i].getTipo() + ";" + arrayBlocos[i].getImg() + ";" + arrayBlocos[i].getCamada() + ";" + "|";
 		}
 
 		for (var i = 0; i < arrayInimigo.length; i++) {
-			texto += "TipoNpc;" + arrayInimigo[i].getPosX() + ";" + arrayInimigo[i].getPosY() + ";" + arrayInimigo[i].getTamX() + ";" + arrayInimigo[i].getTamY() + ";" + arrayInimigo[i].getVelX() + ";" + arrayInimigo[i].getVelY() + ";" + arrayInimigo[i].getCor() + ";" + arrayInimigo[i].getVida() + ";" + arrayInimigo[i].getCamada() + ";" + arrayInimigo[i].getImg() + "\n";
+			texto += "TipoNpc;" + arrayInimigo[i].getPosX() + ";" + arrayInimigo[i].getPosY() + ";" + arrayInimigo[i].getTamX() + ";" + arrayInimigo[i].getTamY() + ";" + arrayInimigo[i].getVelX() + ";" + arrayInimigo[i].getVelY() + ";" + arrayInimigo[i].getCor() + ";" + arrayInimigo[i].getVida() + ";" + arrayInimigo[i].getCamada() + ";" + arrayInimigo[i].getImg() + "|";
 		}
 
 		let blob = new Blob([texto], {
@@ -80,9 +80,32 @@ class Util {
 	}
 
 	static carregarMapa() {
-	//cfiar funcao para carregar jogo
-	//validar conteudo vazio
-	  var txt = document.getElementById('filecontents');
-		alert(txt.innerHTML);
+		//cfiar funcao para carregar jogo
+		//validar conteudo vazio
+		var arquivo = document.getElementById('filecontents').textContent;
+		var conteudoArquivo = arquivo.split("|");
+		arrayBlocos = [];
+		arrayInimigo = [];
+		for (i in conteudoArquivo) {
+			var linha = conteudoArquivo[i];
+			var valores = linha.split(';');
+
+			//for (var j in valores) {
+			//	var valor = valores[j];
+
+			//preciso criar os sets na calsse bloco
+			//preciso criar os sets na calsse inimigo
+
+			//}
+
+			if (valores[0] == "TipoBloco") {
+				var bloco = new Bloco(parseInt(valores[1]), parseInt(valores[2]), parseInt(valores[3]), parseInt(valores[4]), valores[5], parseInt(valores[6]), valores[7], valores[8]);
+				arrayBlocos.push(bloco);
+			} else if (valores[0] == "TipoNpc") {
+				var inimigo = new Inimigo(parseFloat(valores[1]), parseFloat(valores[2]), parseInt(valores[3]), parseInt(valores[4]), parseFloat(valores[5]), parseFloat(valores[6]), valores[7], valores[8], valores[9], valores[10]);
+				arrayInimigo.push(inimigo);
+			}
+		}
+
 	}
 }

@@ -4,52 +4,36 @@
 <head>
 	<meta charset="utf-8" />
 	<title>O meu jogo em HTML e Javascript</title>
+
+
+	<style>
+		#filecontents {display: none;}
+	</style>
+	
 </head>
 
-<body onload="" style="position: fixed; top: 0; left: 0; ">
-	
-	Carregar Jogo:
-	<input type="file" id="txtfiletoread" />
-	<div id="filecontents" ></div>
-	
+<body>
+
 	<canvas id="canvas-jogo" onmousemove="pegarPosicaoMouse(event)" onmousedown="mouseClick(event)" onmouseup="mouseSolto(event)"></canvas>
+
+	<div class="carregarJogo">
+		Carregar Jogo:
+		<input type="file" id="txtfiletoread" />
+		<div id="filecontents"></div>
+		pressione "L".
+	</div>
 	
-	   <script>
-
-        window.onload = function () {
-            //Check the support for the File API support
-            if (window.File && window.FileReader && window.FileList && window.Blob) {
-                var fileSelected = document.getElementById('txtfiletoread');
-                fileSelected.addEventListener('change', function (e) {
-                    //Set the extension for the file
-                    var fileExtension = /text.*/;
-                    //Get the file object
-                    var fileTobeRead = fileSelected.files[0];
-                    //Check of the extension match
-                    if (fileTobeRead.type.match(fileExtension)) {
-                        //Initialize the FileReader object to read the 2file
-                        var fileReader = new FileReader();
-                        fileReader.onload = function (e) {
-                            var fileContents = document.getElementById('filecontents');
-                            fileContents.innerText = fileReader.result;
-                        }
-                        fileReader.readAsText(fileTobeRead);
-                    }
-                    else {
-                        alert("Por favor selecione arquivo texto");
-                    }
-
-                }, false);
-            }
-            else {
-                alert("Arquivo(s) não suportado(s)");
-            }
-        }
-
-    </script>
+	<div class="Help">
+		SHIT+C = Abre e feche menu.<br/>
+		SHIFT enquato move um objeto = Movimento fino.<br/>
+		F com menu aberto = Deleta objeto.<br/>
+		G = Salva o mapa.<br/>
+		L depois de selecionar o arquivo = carrega o mapa.
+	</div>
 	
 </body>
 	
+<script src="js/util/lerArquivo.js"></script>
 <script src="js/util/FileSaver.min.js"></script>
 <script src="js/personagens/ultil/criadorPersonagens.js"></script>
 <script src="js/personagens/ultil/bloco.js"></script>
@@ -60,5 +44,5 @@
 <script src="js/gerenciadores/config.js"></script>
 <script src="js/gerenciadores/util.js"></script>
 <script src="js/gerenciadores/gameLoop.js"></script>
-	
+
 </html>

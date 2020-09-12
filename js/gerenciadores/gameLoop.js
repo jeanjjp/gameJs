@@ -84,15 +84,15 @@ function gameLoop() {
 		}
 		teclaCPressionada = false;
 	}
-	
+
 	//salvar jogo
-	if(teclaGPressionada){
+	if (teclaGPressionada) {
 		teclaGPressionada = false;
-		Util.salvarMapa(arrayBlocos, arrayInimigo);   
+		Util.salvarMapa(arrayBlocos, arrayInimigo);
 	}
 	//carregar jogo
-	if(teclaLPressionada){
-		teclaLPressionada = false; 
+	if (teclaLPressionada) {
+		teclaLPressionada = false;
 		Util.carregarMapa();
 	}
 
@@ -121,12 +121,12 @@ function gameLoop() {
 			arrayBlocos[i].desenhaBloco();
 			arrayBlocos[i].atualizaBloco();
 		}
-		
+
 	}
-	
+
 	heroi.desenhaHeroi();
 	heroi.atualizaHeroi();
-	
+
 	for (var i = 0; i < arrayBlocos.length; i++) {
 		if (arrayBlocos[i].getCamada() === "Piso 3") {
 			arrayBlocos[i].desenhaBloco();
@@ -137,18 +137,21 @@ function gameLoop() {
 		arrayInimigo[i].desenhaInimigo();
 		arrayInimigo[i].atualizaInimigo();
 	}
-	
+
 	//deleta blocos e inimigos
-	for (var i = 0; i < arrayBlocos.length; i++) {
-		if (Util.colide(arrayBlocos[i].getPosX(), mouseX, arrayBlocos[i].getPosY(), mouseY, arrayBlocos[i].getTamX(), 0, arrayBlocos[i].getTamY(), 0)  && editorON && teclaFPressionada) {
-			arrayBlocos.splice(i, 1);
+	if (editorON) {
+		for (var i = 0; i < arrayBlocos.length; i++) {
+			if (Util.colide(arrayBlocos[i].getPosX(), mouseX, arrayBlocos[i].getPosY(), mouseY, arrayBlocos[i].getTamX(), 0, arrayBlocos[i].getTamY(), 0) && teclaFPressionada) {
+				arrayBlocos.splice(i, 1);
+			}
+		}
+		for (var i = 0; i < arrayInimigo.length; i++) {
+			if (Util.colide(arrayInimigo[i].getPosX(), mouseX, arrayInimigo[i].getPosY(), mouseY, arrayInimigo[i].getTamX(), 0, arrayInimigo[i].getTamY(), 0) && teclaFPressionada) {
+				arrayInimigo.splice(i, 1);
+			}
 		}
 	}
-	for (var i = 0; i < arrayInimigo.length; i++) {
-		if (Util.colide(arrayInimigo[i].getPosX(), mouseX, arrayInimigo[i].getPosY(), mouseY, arrayInimigo[i].getTamX(), 0, arrayInimigo[i].getTamY(), 0)  && editorON && teclaFPressionada) {
-			arrayInimigo.splice(i, 1);
-		}
-	}
+
 
 	//  -----  /\  DESENHA  E ATUALIZA EM CIMA DO BACKGROUD ----- /\
 
@@ -185,13 +188,13 @@ function gameLoop() {
 			}
 		}
 		if (menu4) {
-			
+
 		}
 		if (menu5) {
-			
+
 		}
 		if (menu6) {
-			
+
 		}
 
 	}

@@ -1,7 +1,7 @@
 //Configurações do canvas e criação do contexto.
 var canvas = window.document.getElementById("canvas-jogo");
 canvas.width = 1200;
-canvas.height = 900;
+canvas.height = 700;
 
 var larguraMapa = 832;
 var alturaMapa = 704;
