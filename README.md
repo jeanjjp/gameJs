@@ -1,7 +1,7 @@
 # Gabe Base
 
-Game Loop feito em JS com o objetivo de fazer um cirador de arquivos de "mapas" para o próprio game.
-![Preview-Screens](https://github.com/jeanjjp/gameJs/preview.png)
+Game Loop feito em JS com o objetivo de fazer um criador de arquivos de "mapas" para o próprio game.
+![Preview-Screens](https://github.com/jeanjjp/gameJs/blob/master/preview.png)
 
 ## Por quê?
 Apenas por curiosidade e diversão.
