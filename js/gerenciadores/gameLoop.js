@@ -182,7 +182,7 @@ function gameLoop() {
 			}
 		}
 		if (menu3) {
-			for (var i = 80; i < 120; i++) {
+			for (var i = 80; i < 112; i++) {
 				arrayCriador[i].desenhaCriadorPersonagens();
 				arrayCriador[i].atualizaCriadorPersonagens();
 			}
