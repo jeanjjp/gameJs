@@ -108,4 +108,13 @@ class Util {
 		}
 
 	}
+
+	static validarNumero(valor) {
+		var regra = /^[-0-9]/;
+		if (valor.match(regra)) {
+			return  true;
+		} else {
+			return  false;
+		}
+	}
 }

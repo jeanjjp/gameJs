@@ -16,9 +16,11 @@ class Inimigo {
 		this.img = img;
 		this.mostrarStatus = false;
 
-		//criar objeto para inputXs
-		this.inputX = document.createElement('input');
-		this.inputY = document.createElement('input');
+		//inputs
+		this.inputPosX = document.createElement('input');
+		this.inputPosY = document.createElement('input');
+		this.inputTamX = document.createElement('input');
+		this.inputTamY = document.createElement('input');
 
 	}
 
@@ -56,43 +58,42 @@ class Inimigo {
 
 			if (this.mostrarStatus) {
 				this.mostrarStatus = false;
-				this.inputX.remove();
-				this.inputY.remove();
-				this.velX = parseInt(this.inputX.value);
-				this.velY = parseInt(this.inputY.value);
+				this.desenharApagarStatus(0);
 			} else {
 				this.mostrarStatus = true;
-				
-				this.inputX.value = this.velX.toFixed(3);
-				this.inputY.value = this.velY.toFixed(3);
-				
-				this.inputX.style.width = 50 + "px";
-				this.inputX.type = 'number';
-				this.inputX.style.position = 'absolute';
-				this.inputX.style.left = (this.posX + 62) + 'px';
-				this.inputX.style.top = (this.posY + 22) + 'px';
-				
-				this.inputY.style.width = 50 + "px";
-				this.inputY.type = 'number';
-				this.inputY.style.position = 'absolute';
-				this.inputY.style.left = (this.posX + 62) + 'px';
-				this.inputY.style.top = (this.posY + 62) + 'px';
-
-				document.body.appendChild(this.inputX);
-				document.body.appendChild(this.inputY);
-				this.inputX.focus();
-
+				this.desenharApagarStatus(1);
 			}
-
 			blocoSolto = false;
 		}
 
+		if (teclaShiftPressionada) {
+			this.inputPosX.blur();
+			this.inputPosY.blur();
+			this.inputTamX.blur();
+			this.inputTamY.blur();
+		}
+
+		if (!editorON) {
+			this.desenharApagarStatus(0);
+			this.mostrarStatus = false;
+		}
+
 		if (this.inimigoSelecionado) {
-			if (this.mostrarStatus === false) {
 				this.posX = mouseX - this.tamX / 2;
 				this.posY = mouseY - this.tamY / 2;
-			}
-
+			
+				this.inputPosY.style.left = (this.posX + 140) + 'px';
+				this.inputPosY.style.top = (this.posY + 22) + 'px';
+			
+				this.inputPosX.style.left = (this.posX + 62) + 'px';
+				this.inputPosX.style.top = (this.posY + 22) + 'px';
+			
+				this.inputTamX.style.left = (this.posX + 62) + 'px';
+				this.inputTamX.style.top = (this.posY + 62) + 'px';
+			
+				this.inputTamY.style.left = (this.posX + 140) + 'px';
+				this.inputTamY.style.top = (this.posY + 62) + 'px';
+			
 			if (!click) {
 				this.inimigoSelecionado = false;
 				blocoSolto = true;
@@ -101,7 +102,6 @@ class Inimigo {
 	}
 
 	desenhaInimigo() {
-
 		if (this.img !== null && this.img !== undefined) {
 			var img = new Image();
 			img.src = pastaRaizImg + this.img;
@@ -111,13 +111,17 @@ class Inimigo {
 			contexto.closePath();
 			if (this.mostrarStatus && editorON) {
 				contexto.beginPath();
-				contexto.rect(this.posX + 50, this.posY, 75, 100);
+				contexto.rect(this.posX + 50, this.posY, 150, 120);
 				contexto.fillStyle = "BLUE";
 				contexto.fill();
 				contexto.fillStyle = "WHITE"
 				contexto.font = "normal 8pt Arial";
-				contexto.fillText("Vel.X = " + this.velX.toFixed(3), this.posX + 52, this.posY + 12);
-				contexto.fillText("Vel.Y = " + this.velY.toFixed(3), this.posX + 52, this.posY + 52);
+				
+				contexto.fillText("Vel.X", this.posX + 62, this.posY + 12);
+				contexto.fillText("Vel.Y", this.posX + 140, this.posY + 12);
+				
+				contexto.fillText("Tam.X", this.posX + 62, this.posY + 52);
+				contexto.fillText("Tam.Y", this.posX + 140, this.posY + 52);
 				contexto.closePath();
 			}
 		} else {
@@ -127,10 +131,68 @@ class Inimigo {
 			contexto.fill();
 			contexto.closePath();
 		}
+	}
 
 
+	desenharApagarStatus(tipo) {
+		//1 desenha 0 apaga
+		if (tipo) {
+			this.inputPosX.value = this.velX.toFixed(3);
+			this.inputPosY.value = this.velY.toFixed(3);
+			
+			this.inputTamX.value = this.tamX.toFixed(0);
+			this.inputTamY.value = this.tamY.toFixed(0);
 
+			this.inputPosX.style.width = 50 + "px";
+			this.inputPosX.type = 'number';
+			this.inputPosX.style.position = 'absolute';
+			this.inputPosX.style.left = (this.posX + 62) + 'px';
+			this.inputPosX.style.top = (this.posY + 22) + 'px';
 
+			this.inputPosY.style.width = 50 + "px";
+			this.inputPosY.type = 'number';
+			this.inputPosY.style.position = 'absolute';
+			this.inputPosY.style.left = (this.posX + 240) + 'px';
+			this.inputPosY.style.top = (this.posY + 22) + 'px';
+			
+			this.inputTamX.style.width = 50 + "px";
+			this.inputTamX.type = 'number';
+			this.inputTamX.style.position = 'absolute';
+			this.inputTamX.style.left = (this.posX + 60) + 'px';
+			this.inputTamX.style.top = (this.posY + 62) + 'px';
+			
+			this.inputTamY.style.width = 50 + "px";
+			this.inputTamY.type = 'number';
+			this.inputTamY.style.position = 'absolute';
+			this.inputTamY.style.left = (this.posX + 140) + 'px';
+			this.inputTamY.style.top = (this.posY + 62) + 'px';
+
+			document.body.appendChild(this.inputPosX);
+			document.body.appendChild(this.inputPosY);
+			document.body.appendChild(this.inputTamX);
+			document.body.appendChild(this.inputTamY);
+			this.inputPosX.focus();
+		} else {
+			this.inputPosX.remove();
+			this.inputPosY.remove();
+			this.inputTamX.remove();
+			this.inputTamY.remove();
+
+			var validinputPosX = Util.validarNumero(this.inputPosX.value);
+			var validinputPosY = Util.validarNumero(this.inputPosY.value);
+			
+			var validinputTamX = Util.validarNumero(this.inputTamX.value);
+			var validinputTamY = Util.validarNumero(this.inputTamY.value);
+			
+			if (validinputPosX && validinputPosY && validinputTamY && validinputTamX) {
+				this.velX = parseFloat(this.inputPosX.value);
+				this.velY = parseFloat(this.inputPosY.value);
+				
+				this.tamX = parseInt(this.inputTamX.value);
+				this.tamY = parseInt(this.inputTamY.value);
+			}
+
+		}
 
 	}
 
