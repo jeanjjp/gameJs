@@ -53,8 +53,13 @@ class Inimigo {
 			this.vida = false;
 		}
 
-		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON && blocoSolto) {
+		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && editorON && click) {
+			inimigoSolto = false;
+		}
+
+		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 2, this.tamY, 2) && click && editorON && blocoSolto) {
 			this.inimigoSelecionado = true;
+			blocoSolto = false;
 
 			if (this.mostrarStatus) {
 				this.mostrarStatus = false;
@@ -63,7 +68,6 @@ class Inimigo {
 				this.mostrarStatus = true;
 				this.desenharApagarStatus(1);
 			}
-			blocoSolto = false;
 		}
 
 		if (teclaShiftPressionada) {
@@ -79,24 +83,25 @@ class Inimigo {
 		}
 
 		if (this.inimigoSelecionado) {
-				this.posX = mouseX - this.tamX / 2;
-				this.posY = mouseY - this.tamY / 2;
-			
-				this.inputPosY.style.left = (this.posX + 140) + 'px';
-				this.inputPosY.style.top = (this.posY + 22) + 'px';
-			
-				this.inputPosX.style.left = (this.posX + 62) + 'px';
-				this.inputPosX.style.top = (this.posY + 22) + 'px';
-			
-				this.inputTamX.style.left = (this.posX + 62) + 'px';
-				this.inputTamX.style.top = (this.posY + 62) + 'px';
-			
-				this.inputTamY.style.left = (this.posX + 140) + 'px';
-				this.inputTamY.style.top = (this.posY + 62) + 'px';
-			
+			this.posX = mouseX - this.tamX / 2;
+			this.posY = mouseY - this.tamY / 2;
+
+			this.inputPosY.style.left = (this.posX + 140) + 'px';
+			this.inputPosY.style.top = (this.posY + 22) + 'px';
+
+			this.inputPosX.style.left = (this.posX + 62) + 'px';
+			this.inputPosX.style.top = (this.posY + 22) + 'px';
+
+			this.inputTamX.style.left = (this.posX + 62) + 'px';
+			this.inputTamX.style.top = (this.posY + 62) + 'px';
+
+			this.inputTamY.style.left = (this.posX + 140) + 'px';
+			this.inputTamY.style.top = (this.posY + 62) + 'px';
+
 			if (!click) {
 				this.inimigoSelecionado = false;
 				blocoSolto = true;
+				inimigoSolto = true;
 			}
 		}
 	}
@@ -116,10 +121,10 @@ class Inimigo {
 				contexto.fill();
 				contexto.fillStyle = "WHITE"
 				contexto.font = "normal 8pt Arial";
-				
+
 				contexto.fillText("Vel.X", this.posX + 62, this.posY + 12);
 				contexto.fillText("Vel.Y", this.posX + 140, this.posY + 12);
-				
+
 				contexto.fillText("Tam.X", this.posX + 62, this.posY + 52);
 				contexto.fillText("Tam.Y", this.posX + 140, this.posY + 52);
 				contexto.closePath();
@@ -139,7 +144,7 @@ class Inimigo {
 		if (tipo) {
 			this.inputPosX.value = this.velX.toFixed(3);
 			this.inputPosY.value = this.velY.toFixed(3);
-			
+
 			this.inputTamX.value = this.tamX.toFixed(0);
 			this.inputTamY.value = this.tamY.toFixed(0);
 
@@ -154,13 +159,13 @@ class Inimigo {
 			this.inputPosY.style.position = 'absolute';
 			this.inputPosY.style.left = (this.posX + 240) + 'px';
 			this.inputPosY.style.top = (this.posY + 22) + 'px';
-			
+
 			this.inputTamX.style.width = 50 + "px";
 			this.inputTamX.type = 'number';
 			this.inputTamX.style.position = 'absolute';
 			this.inputTamX.style.left = (this.posX + 60) + 'px';
 			this.inputTamX.style.top = (this.posY + 62) + 'px';
-			
+
 			this.inputTamY.style.width = 50 + "px";
 			this.inputTamY.type = 'number';
 			this.inputTamY.style.position = 'absolute';
@@ -180,14 +185,14 @@ class Inimigo {
 
 			var validinputPosX = Util.validarNumero(this.inputPosX.value);
 			var validinputPosY = Util.validarNumero(this.inputPosY.value);
-			
+
 			var validinputTamX = Util.validarNumero(this.inputTamX.value);
 			var validinputTamY = Util.validarNumero(this.inputTamY.value);
-			
+
 			if (validinputPosX && validinputPosY && validinputTamY && validinputTamX) {
 				this.velX = parseFloat(this.inputPosX.value);
 				this.velY = parseFloat(this.inputPosY.value);
-				
+
 				this.tamX = parseInt(this.inputTamX.value);
 				this.tamY = parseInt(this.inputTamY.value);
 			}

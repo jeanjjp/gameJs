@@ -15,7 +15,7 @@ class Bloco {
 
 	atualizaBloco() {
 		
-		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON && blocoSolto) {
+		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON && blocoSolto && inimigoSolto) {
 			this.blocoSelecionado = true;
 			blocoSolto = false;
 		}

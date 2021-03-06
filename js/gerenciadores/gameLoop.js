@@ -4,6 +4,7 @@ var frames = 0;
 var fps = 0;
 var tempoAtualFps = 0;
 var blocoSolto = true;
+var inimigoSolto = true;
 var menu1 = true;
 var menu2 = false;
 var menu3 = false;
@@ -147,6 +148,7 @@ function gameLoop() {
 		}
 		for (var i = 0; i < arrayInimigo.length; i++) {
 			if (Util.colide(arrayInimigo[i].getPosX(), mouseX, arrayInimigo[i].getPosY(), mouseY, arrayInimigo[i].getTamX(), 0, arrayInimigo[i].getTamY(), 0) && teclaFPressionada) {
+				arrayInimigo[i].desenharApagarStatus(0);
 				arrayInimigo.splice(i, 1);
 			}
 		}
