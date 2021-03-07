@@ -14,8 +14,8 @@ class Bloco {
 
 
 	atualizaBloco() {
-		
-		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON && blocoSolto && inimigoSolto) {
+
+		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON && blocoSolto && inimigoSolto && textoCamada === this.camada) {
 			this.blocoSelecionado = true;
 			blocoSolto = false;
 		}
@@ -25,8 +25,8 @@ class Bloco {
 				this.posX = mouseX - (mouseX % larguraBloco);
 				this.posY = mouseY - (mouseY % alturaBloco);
 			} else {
-				this.posX = mouseX - (this.tamX/2);
-				this.posY = mouseY - (this.tamY/2);
+				this.posX = mouseX - (this.tamX / 2);
+				this.posY = mouseY - (this.tamY / 2);
 			}
 
 			if (!click) {
@@ -38,21 +38,50 @@ class Bloco {
 
 	desenhaBloco() {
 
-		if (this.img !== null && this.img !== undefined) {
-			var img = new Image();
-			img.src = pastaRaizImg + this.img;
-			contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
-			contexto.beginPath();
-			contexto.fill();
-			contexto.closePath();
+		if (editorON) {
+			if (this.camada === textoCamada) {
+				if (this.img !== null && this.img !== undefined) {
+					var img = new Image();
+					img.src = pastaRaizImg + this.img;
+					contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
+					contexto.beginPath();
+					contexto.fill();
+					contexto.closePath();
+				} else {
+					contexto.beginPath();
+					contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
+					contexto.fillStyle = this.cor;
+					contexto.fill();
+					contexto.closePath();
+				}
+			} else {
+				contexto.beginPath();
+				contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
+				if(this.camada === "Piso 2"){
+				   contexto.fillStyle = "BLUE";
+				   }else{
+					   contexto.fillStyle = "GREY";
+				   }
+				
+				contexto.fill();
+				contexto.closePath();
+			}
 		} else {
-			contexto.beginPath();
-			contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
-			contexto.fillStyle = this.cor;
-			contexto.fill();
-			contexto.closePath();
+			if (this.img !== null && this.img !== undefined) {
+				var img = new Image();
+				img.src = pastaRaizImg + this.img;
+				contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
+				contexto.beginPath();
+				contexto.fill();
+				contexto.closePath();
+			} else {
+				contexto.beginPath();
+				contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
+				contexto.fillStyle = this.cor;
+				contexto.fill();
+				contexto.closePath();
+			}
 		}
-
 	}
 
 	getPosX() {
