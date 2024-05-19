@@ -15,18 +15,18 @@ class Bloco {
 
 	atualizaBloco() {
 
-		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON && blocoSolto && inimigoSolto && textoCamada === this.camada) {
+		if (Util.colide(this.posX - larguraMinMapa, mouseX, this.posY - alturaMinMapa, mouseY, this.tamX, 0, this.tamY, 0) && click && editorON && blocoSolto && inimigoSolto && textoCamada === this.camada) {
 			this.blocoSelecionado = true;
 			blocoSolto = false;
 		}
 
 		if (this.blocoSelecionado) {
 			if (!teclaShiftPressionada) {
-				this.posX = mouseX - (mouseX % larguraBloco);
-				this.posY = mouseY - (mouseY % alturaBloco);
+				this.posX = mouseX + larguraMinMapa - (mouseX % larguraBloco);
+				this.posY = mouseY + alturaMinMapa - (mouseY % alturaBloco);
 			} else {
-				this.posX = mouseX - (this.tamX / 2);
-				this.posY = mouseY - (this.tamY / 2);
+				this.posX = mouseX + larguraMinMapa - (this.tamX / 2);
+				this.posY = mouseY + alturaMinMapa- (this.tamY / 2);
 			}
 
 			if (!click) {
@@ -39,48 +39,61 @@ class Bloco {
 	desenhaBloco() {
 
 		if (editorON) {
-			if (this.camada === textoCamada) {
+			if (this.posX <= larguraMapa && this.posX >= larguraMinMapa && this.posY <= alturaMapa && this.posY >= alturaMinMapa) {
+				if (this.camada === textoCamada) {
+					if (this.img !== null && this.img !== undefined) {
+						var img = new Image();
+						img.src = pastaRaizImg + this.img;
+						contexto.drawImage(img, this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
+						contexto.beginPath();
+						contexto.fill();
+						contexto.closePath();
+					} else {
+						contexto.beginPath();
+						contexto.rect(this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
+						contexto.fillStyle = this.cor;
+						contexto.fill();
+						contexto.closePath();
+					}
+				} else {
+					contexto.beginPath();
+					contexto.rect(this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
+					if(this.camada === "Piso 2"){
+					   contexto.fillStyle = "BLUE";
+					   }else{
+						   contexto.fillStyle = "GREY";
+					   }
+					
+					contexto.fill();
+					contexto.closePath();
+				}
+				
+			}else{
+				contexto.beginPath();
+						contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
+						contexto.fillStyle = this.cor;
+						contexto.fill();
+						contexto.closePath();
+			}
+			
+		} else {
+			if(this.posX <= larguraMapa && this.posX >= larguraMinMapa && this.posY <= alturaMapa && this.posY >= alturaMinMapa){
 				if (this.img !== null && this.img !== undefined) {
 					var img = new Image();
 					img.src = pastaRaizImg + this.img;
-					contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
+					contexto.drawImage(img, this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
 					contexto.beginPath();
 					contexto.fill();
 					contexto.closePath();
 				} else {
 					contexto.beginPath();
-					contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
+					contexto.rect(this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
 					contexto.fillStyle = this.cor;
 					contexto.fill();
 					contexto.closePath();
 				}
-			} else {
-				contexto.beginPath();
-				contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
-				if(this.camada === "Piso 2"){
-				   contexto.fillStyle = "BLUE";
-				   }else{
-					   contexto.fillStyle = "GREY";
-				   }
-				
-				contexto.fill();
-				contexto.closePath();
 			}
-		} else {
-			if (this.img !== null && this.img !== undefined) {
-				var img = new Image();
-				img.src = pastaRaizImg + this.img;
-				contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
-				contexto.beginPath();
-				contexto.fill();
-				contexto.closePath();
-			} else {
-				contexto.beginPath();
-				contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
-				contexto.fillStyle = this.cor;
-				contexto.fill();
-				contexto.closePath();
-			}
+			
 		}
 	}
 

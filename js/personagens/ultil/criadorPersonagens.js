@@ -318,40 +318,40 @@ class CriadorPersonagens {
 				arrayBlocos.push(bloco);
 				//INIMIGOS OU NPC//
 			}else if (this.tipo == 101) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc1.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc1.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 102) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc2.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc2.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 103) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc3.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc3.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 104) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc4.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc4.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 105) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc5.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc5.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 106) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc6.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc6.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 107) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc7.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc7.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 108) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc8.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc8.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 109) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc9.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc9.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 110) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc10.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc10.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 111) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc11.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc11.png");
 				arrayInimigo.push(inimigo);
 			}else if (this.tipo == 112) {
-				var inimigo = new Inimigo(Math.random() * larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * -2 + 1, Math.random() * -2 + 1, "RED", true, textoCamada, "npc/npc12.png");
+				var inimigo = new Inimigo(heroi.getPosX() +20,  heroi.getPosY() +20, 64, 64, Math.random() *1, Math.random() *1, "RED", true, textoCamada, "npc/npc12.png");
 				arrayInimigo.push(inimigo);
 			}
 

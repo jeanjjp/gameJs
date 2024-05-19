@@ -28,24 +28,34 @@ class Inimigo {
 	atualizaInimigo() {
 		//faz o inimigo andar
 		if (!editorON) {
-			this.posX += this.velX;
-			this.posY += this.velY;
-			this.posX += this.velX;
-			this.posY += this.velY;
+			//this.posX += this.velX;
+			//this.posY += this.velY;
+			//this.posX += this.velX;
+			//this.posY += this.velY;
+			if(this.posX - heroi.getPosX()  < 0){
+				this.posX += this.velX;
+			}else if(this.posX - heroi.getPosX()  > 0){
+				this.posX -= this.velX
+			}
+			if(this.posY - heroi.getPosY()  < 0){
+				this.posY += this.velY;
+			}else if(this.posY - heroi.getPosY()  > 0){
+				this.posY -= this.velY
+			}
 		}
 
 		//colide com as bordas da tela
-		if (this.posX + this.tamX > larguraMapa) {
+		if (this.posX + this.tamX > larguraMundo) {
 			this.posX = 0;
 		}
 		if (this.posX < 0) {
-			this.posX = larguraMapa - this.tamX;
+			this.posX = larguraMundo - this.tamX;
 		}
-		if (this.posY + this.tamY / 2 > alturaMapa) {
+		if (this.posY + this.tamY / 2 > alturaMundo) {
 			this.posY = 0 - this.tamY / 2;
 		}
 		if (this.posY + this.tamY / 2 < 0) {
-			this.posY = alturaMapa - this.tamY / 2;
+			this.posY = alturaMundo - this.tamY / 2;
 		}
 		this.tempo = (new Date().getTime() - this.antes) / 1000;
 
@@ -53,11 +63,11 @@ class Inimigo {
 			this.vida = false;
 		}
 
-		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 0, this.tamY, 0) && editorON && click) {
+		if (Util.colide(this.posX - larguraMinMapa, mouseX, this.posY - alturaMinMapa, mouseY, this.tamX, 0, this.tamY, 0) && editorON && click) {
 			inimigoSolto = false;
 		}
 
-		if (Util.colide(this.posX, mouseX, this.posY, mouseY, this.tamX, 2, this.tamY, 2) && click && editorON && blocoSolto) {
+		if (Util.colide(this.posX - larguraMinMapa, mouseX, this.posY - alturaMinMapa, mouseY, this.tamX, 2, this.tamY, 2) && click && editorON && blocoSolto) {
 			this.inimigoSelecionado = true;
 			blocoSolto = false;
 
@@ -83,20 +93,20 @@ class Inimigo {
 		}
 
 		if (this.inimigoSelecionado) {
-			this.posX = mouseX - this.tamX / 2;
-			this.posY = mouseY - this.tamY / 2;
+			this.posX = mouseX + larguraMinMapa - this.tamX / 2;
+			this.posY = mouseY + alturaMinMapa - this.tamY / 2;
 
-			this.inputPosY.style.left = (this.posX + 140) + 'px';
-			this.inputPosY.style.top = (this.posY + 22) + 'px';
+			this.inputPosY.style.left = (this.posX - larguraMinMapa + 140) + 'px';
+			this.inputPosY.style.top = (this.posY - alturaMinMapa + 22) + 'px';
 
-			this.inputPosX.style.left = (this.posX + 62) + 'px';
-			this.inputPosX.style.top = (this.posY + 22) + 'px';
+			this.inputPosX.style.left = (this.posX - larguraMinMapa + 62) + 'px';
+			this.inputPosX.style.top = (this.posY - alturaMinMapa + 22) + 'px';
 
-			this.inputTamX.style.left = (this.posX + 62) + 'px';
-			this.inputTamX.style.top = (this.posY + 62) + 'px';
+			this.inputTamX.style.left = (this.posX - larguraMinMapa+ 62) + 'px';
+			this.inputTamX.style.top = (this.posY - alturaMinMapa + 62) + 'px';
 
-			this.inputTamY.style.left = (this.posX + 140) + 'px';
-			this.inputTamY.style.top = (this.posY + 62) + 'px';
+			this.inputTamY.style.left = (this.posX - larguraMinMapa + 140) + 'px';
+			this.inputTamY.style.top = (this.posY - alturaMinMapa + 62) + 'px';
 
 			if (!click) {
 				this.inimigoSelecionado = false;
@@ -107,35 +117,38 @@ class Inimigo {
 	}
 
 	desenhaInimigo() {
-		if (this.img !== null && this.img !== undefined) {
-			var img = new Image();
-			img.src = pastaRaizImg + this.img;
-			contexto.drawImage(img, this.posX, this.posY, this.tamX, this.tamY);
-			contexto.beginPath();
-			contexto.fill();
-			contexto.closePath();
-			if (this.mostrarStatus && editorON) {
+		if(this.posX <= larguraMapa && this.posX >= larguraMinMapa && this.posY <= alturaMapa && this.posY >= alturaMinMapa){
+			if (this.img !== null && this.img !== undefined) {
+				var img = new Image();
+				img.src = pastaRaizImg + this.img;
+				contexto.drawImage(img, this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
 				contexto.beginPath();
-				contexto.rect(this.posX + 50, this.posY, 150, 120);
-				contexto.fillStyle = "BLUE";
 				contexto.fill();
-				contexto.fillStyle = "WHITE"
-				contexto.font = "normal 8pt Arial";
-
-				contexto.fillText("Vel.X", this.posX + 62, this.posY + 12);
-				contexto.fillText("Vel.Y", this.posX + 140, this.posY + 12);
-
-				contexto.fillText("Tam.X", this.posX + 62, this.posY + 52);
-				contexto.fillText("Tam.Y", this.posX + 140, this.posY + 52);
+				contexto.closePath();
+				if (this.mostrarStatus && editorON) {
+					contexto.beginPath();
+					contexto.rect(this.posX - larguraMinMapa + 50, this.posY - alturaMinMapa, 150, 120);
+					contexto.fillStyle = "BLUE";
+					contexto.fill();
+					contexto.fillStyle = "WHITE"
+					contexto.font = "normal 8pt Arial";
+	
+					contexto.fillText("Vel.X", this.posX - larguraMinMapa + 62, this.posY - alturaMinMapa + 12);
+					contexto.fillText("Vel.Y", this.posX - larguraMinMapa + 140, this.posY - alturaMinMapa + 12);
+	
+					contexto.fillText("Tam.X", this.posX - larguraMinMapa + 62, this.posY - alturaMinMapa + 52);
+					contexto.fillText("Tam.Y", this.posX - larguraMinMapa + 140, this.posY - alturaMinMapa + 52);
+					contexto.closePath();
+				}
+			} else {
+				contexto.beginPath();
+				contexto.rect(this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
+				contexto.fillStyle = this.cor;
+				contexto.fill();
 				contexto.closePath();
 			}
-		} else {
-			contexto.beginPath();
-			contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
-			contexto.fillStyle = this.cor;
-			contexto.fill();
-			contexto.closePath();
 		}
+		
 	}
 
 
@@ -151,26 +164,26 @@ class Inimigo {
 			this.inputPosX.style.width = 50 + "px";
 			this.inputPosX.type = 'number';
 			this.inputPosX.style.position = 'absolute';
-			this.inputPosX.style.left = (this.posX + 62) + 'px';
-			this.inputPosX.style.top = (this.posY + 22) + 'px';
+			this.inputPosX.style.left = (this.posX - larguraMinMapa  + 62) + 'px';
+			this.inputPosX.style.top = (this.posY - alturaMinMapa  + 22) + 'px';
 
 			this.inputPosY.style.width = 50 + "px";
 			this.inputPosY.type = 'number';
 			this.inputPosY.style.position = 'absolute';
-			this.inputPosY.style.left = (this.posX + 240) + 'px';
-			this.inputPosY.style.top = (this.posY + 22) + 'px';
+			this.inputPosY.style.left = (this.posX - larguraMinMapa  + 240) + 'px';
+			this.inputPosY.style.top = (this.posY - alturaMinMapa + 22) + 'px';
 
 			this.inputTamX.style.width = 50 + "px";
 			this.inputTamX.type = 'number';
 			this.inputTamX.style.position = 'absolute';
-			this.inputTamX.style.left = (this.posX + 60) + 'px';
-			this.inputTamX.style.top = (this.posY + 62) + 'px';
+			this.inputTamX.style.left = (this.posX - larguraMinMapa + 60) + 'px';
+			this.inputTamX.style.top = (this.posY - alturaMinMapa + 62) + 'px';
 
 			this.inputTamY.style.width = 50 + "px";
 			this.inputTamY.type = 'number';
 			this.inputTamY.style.position = 'absolute';
-			this.inputTamY.style.left = (this.posX + 140) + 'px';
-			this.inputTamY.style.top = (this.posY + 62) + 'px';
+			this.inputTamY.style.left = (this.posX - larguraMinMapa + 140) + 'px';
+			this.inputTamY.style.top = (this.posY - alturaMinMapa + 62) + 'px';
 
 			document.body.appendChild(this.inputPosX);
 			document.body.appendChild(this.inputPosY);

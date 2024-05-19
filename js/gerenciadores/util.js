@@ -15,18 +15,18 @@ class Util {
 		//desenha linhas horizontais
 		for (var i = 0; i < alturaMapa; i += alturaBloco) {
 			contexto.beginPath();
-			contexto.rect(0, i, larguraMapa, 1);
+			contexto.rect(0 - larguraMinMapa, i - alturaMinMapa, larguraMapa, 1);
 			contexto.fillStyle = "WHITE";
 			contexto.fill();
 		}
 		//desenha linhas verticais
 		for (var i = 0; i < larguraMapa; i += larguraBloco) {
-			contexto.rect(i, 0, 1, alturaMapa);
+			contexto.rect(i - larguraMinMapa, 0 - alturaMinMapa, 1, alturaMapa);
 			contexto.fillStyle = "WHITE";
 			contexto.fill();
 		}
 		//desenha barra de menu
-		contexto.rect(0, 0, largura, altura);
+		contexto.rect(0, 0, largura - larguraMinMapa, altura);
 		contexto.fillStyle = corMenu;
 		contexto.fill();
 	}
@@ -35,7 +35,7 @@ class Util {
 
 		//desenha barra de menu
 		contexto.beginPath();
-		contexto.rect(larguraMapa + 1, 0, largura, altura);
+		contexto.rect(larguraMapa - larguraMinMapa + 1, 0, largura, altura);
 		contexto.fillStyle = corMenu;
 		contexto.fill();
 		contexto.closePath();

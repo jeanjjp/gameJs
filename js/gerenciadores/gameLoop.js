@@ -58,6 +58,18 @@ for (var i = 1; i <= 112; i++) {
 	}
 }
 
+for (var i = 0; i < larguraMundo; i = i +64) {
+	for (var k = 0; k < alturaMundo; k = k +64) {
+		var rdn = Math.floor(Math.random() * 24)+1;
+		if(rdn >2 && rdn < 13){
+			rdn = 1;
+		}
+		var bloco = new Bloco(i, k, 64, 64, "RED", rdn, "piso/piso"+rdn+".png", textoCamada);
+		arrayBlocos.push(bloco);
+	}
+	
+}
+
 var heroi = new Heroi(larguraMapa / 2 - 32, alturaMapa / 2 - 32, 64, 64, 5, 5, "WHITE", true, "hero.png");
 
 /*FUNÇÕES DO JOGO*/
@@ -100,7 +112,7 @@ function gameLoop() {
 	// Limpa o tela
 	contexto.clearRect(0, 0, canvas.width, canvas.height);
 	// desenha bakground
-	Util.desenhaBackGround(larguraMapa, alturaMapa, "BLACK");
+	//Util.desenhaBackGround(larguraMapa, alturaMapa, "BLACK");
 
 
 
@@ -142,12 +154,12 @@ function gameLoop() {
 	//deleta blocos e inimigos
 	if (editorON) {
 		for (var i = 0; i < arrayBlocos.length; i++) {
-			if (Util.colide(arrayBlocos[i].getPosX(), mouseX, arrayBlocos[i].getPosY(), mouseY, arrayBlocos[i].getTamX(), 0, arrayBlocos[i].getTamY(), 0) && teclaFPressionada) {
+			if (Util.colide(arrayBlocos[i].getPosX() - larguraMinMapa, mouseX, arrayBlocos[i].getPosY() - alturaMinMapa, mouseY, arrayBlocos[i].getTamX(), 0, arrayBlocos[i].getTamY(), 0) && teclaFPressionada) {
 				arrayBlocos.splice(i, 1);
 			}
 		}
 		for (var i = 0; i < arrayInimigo.length; i++) {
-			if (Util.colide(arrayInimigo[i].getPosX(), mouseX, arrayInimigo[i].getPosY(), mouseY, arrayInimigo[i].getTamX(), 0, arrayInimigo[i].getTamY(), 0) && teclaFPressionada) {
+			if (Util.colide(arrayInimigo[i].getPosX()- larguraMinMapa, mouseX, arrayInimigo[i].getPosY() - alturaMinMapa, mouseY, arrayInimigo[i].getTamX(), 0, arrayInimigo[i].getTamY(), 0) && teclaFPressionada) {
 				arrayInimigo[i].desenharApagarStatus(0);
 				arrayInimigo.splice(i, 1);
 			}
