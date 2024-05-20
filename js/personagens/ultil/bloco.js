@@ -39,7 +39,7 @@ class Bloco {
 	desenhaBloco() {
 
 		if (editorON) {
-			if (this.posX <= larguraMapa && this.posX >= larguraMinMapa && this.posY <= alturaMapa && this.posY >= alturaMinMapa) {
+			if (this.posX < larguraMapa && this.posX >= larguraMinMapa && this.posY < alturaMapa && this.posY >= alturaMinMapa) {
 				if (this.camada === textoCamada) {
 					if (this.img !== null && this.img !== undefined) {
 						var img = new Image();
@@ -77,7 +77,7 @@ class Bloco {
 			}
 			
 		} else {
-			if(this.posX <= larguraMapa && this.posX >= larguraMinMapa && this.posY <= alturaMapa && this.posY >= alturaMinMapa){
+			if(this.posX < larguraMapa && this.posX >= larguraMinMapa && this.posY < alturaMapa && this.posY >= alturaMinMapa){
 				if (this.img !== null && this.img !== undefined) {
 					var img = new Image();
 					img.src = pastaRaizImg + this.img;

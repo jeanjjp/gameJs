@@ -45,16 +45,16 @@ class Inimigo {
 		}
 
 		//colide com as bordas da tela
-		if (this.posX + this.tamX > larguraMundo) {
+		if (this.posX + (this.tamX/2) > larguraMundo) {
 			this.posX = 0;
 		}
 		if (this.posX < 0) {
 			this.posX = larguraMundo - this.tamX;
 		}
-		if (this.posY + this.tamY / 2 > alturaMundo) {
+		if (this.posY + (this.tamY/2) > alturaMundo) {
 			this.posY = 0 - this.tamY / 2;
 		}
-		if (this.posY + this.tamY / 2 < 0) {
+		if (this.posY + (this.tamY/2) < 0) {
 			this.posY = alturaMundo - this.tamY / 2;
 		}
 		this.tempo = (new Date().getTime() - this.antes) / 1000;
@@ -117,7 +117,7 @@ class Inimigo {
 	}
 
 	desenhaInimigo() {
-		if(this.posX <= larguraMapa && this.posX >= larguraMinMapa && this.posY <= alturaMapa && this.posY >= alturaMinMapa){
+		if(this.posX + (this.tamX/2) < larguraMapa && this.posX + (this.tamX/2) >= larguraMinMapa && this.posY + (this.tamY/2) < alturaMapa && this.posY + (this.tamY/2) >= alturaMinMapa){
 			if (this.img !== null && this.img !== undefined) {
 				var img = new Image();
 				img.src = pastaRaizImg + this.img;

@@ -30,6 +30,7 @@ var botaoCamada2 = new Botao(906, 40, 50, 20, "BLUE", 12, "Piso 2", "WHITE");
 var botaoCamada3 = new Botao(970, 40, 50, 20, "BLUE", 13, "Piso 3", "WHITE");
 
 var arrayInimigo = [];
+var arrayArma = [];
 var arrayBlocos = [];
 var arrayBotao = [];
 var arrayCriador = [];
@@ -72,6 +73,10 @@ for (var i = 0; i < larguraMundo; i = i +64) {
 
 var heroi = new Heroi(larguraMapa / 2 - 32, alturaMapa / 2 - 32, 64, 64, 5, 5, "WHITE", true, "hero.png");
 
+
+	var arma1 = new Arma();
+	arrayArma.push(arma1);
+
 /*FUNÇÕES DO JOGO*/
 // Função que desenha todos os componentes do jogo a cada loop
 function gameLoop() {
@@ -109,18 +114,23 @@ function gameLoop() {
 		Util.carregarMapa();
 	}
 
+	//Atirar
+	if (click && arma1.getPodeAtirar() && !editorON) {
+      var angulo = Math.atan2(mouseY - heroi.getPosY()-(heroi.getTamY()/2) + alturaMinMapa, mouseX - heroi.getPosX()-(heroi.getTamX()/2) + larguraMinMapa);
+      arma1 = new Arma(heroi.getPosX()+(heroi.getTamX()/2), heroi.getPosY()+(heroi.getTamY()/2), 3,3, angulo, 10, "WHITE", true, 1);
+      arrayArma.push(arma1);
+	  arma1.setPodeAtirar(false);
+    }
+
+
+
+
+
+
 	// Limpa o tela
 	contexto.clearRect(0, 0, canvas.width, canvas.height);
 	// desenha bakground
 	//Util.desenhaBackGround(larguraMapa, alturaMapa, "BLACK");
-
-
-
-
-
-
-
-
 	//  -----  \/  DESENHA  E ATUALIZA EM CIMA DO BACKGROUD ----- \/
 
 	for (var i = 0; i < arrayBlocos.length; i++) {
@@ -146,11 +156,15 @@ function gameLoop() {
 			arrayBlocos[i].atualizaBloco();
 		}
 	}
+	
 	for (var i = 0; i < arrayInimigo.length; i++) {
 		arrayInimigo[i].desenhaInimigo();
 		arrayInimigo[i].atualizaInimigo();
 	}
-
+	for (var i = 0; i < arrayArma.length; i++) {
+		arrayArma[i].desenhaArma();
+		arrayArma[i].atualizaArma();
+	}
 	//deleta blocos e inimigos
 	if (editorON) {
 		for (var i = 0; i < arrayBlocos.length; i++) {
