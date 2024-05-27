@@ -32,35 +32,36 @@ class Inimigo {
 			//this.posY += this.velY;
 			//this.posX += this.velX;
 			//this.posY += this.velY;
-			if(this.posX - heroi.getPosX()  < 0){
+			if (this.posX - heroi.getPosX() < 0) {
 				this.posX += this.velX;
-			}else if(this.posX - heroi.getPosX()  > 0){
+			} else if (this.posX - heroi.getPosX() > 0) {
 				this.posX -= this.velX
 			}
-			if(this.posY - heroi.getPosY()  < 0){
+			if (this.posY - heroi.getPosY() < 0) {
 				this.posY += this.velY;
-			}else if(this.posY - heroi.getPosY()  > 0){
+			} else if (this.posY - heroi.getPosY() > 0) {
 				this.posY -= this.velY
 			}
 		}
 
 		//colide com as bordas da tela
-		if (this.posX + (this.tamX/2) > larguraMundo) {
+		if (this.posX + (this.tamX / 2) > larguraMundo) {
 			this.posX = 0;
 		}
 		if (this.posX < 0) {
 			this.posX = larguraMundo - this.tamX;
 		}
-		if (this.posY + (this.tamY/2) > alturaMundo) {
+		if (this.posY + (this.tamY / 2) > alturaMundo) {
 			this.posY = 0 - this.tamY / 2;
 		}
-		if (this.posY + (this.tamY/2) < 0) {
+		if (this.posY + (this.tamY / 2) < 0) {
 			this.posY = alturaMundo - this.tamY / 2;
 		}
+
 		this.tempo = (new Date().getTime() - this.antes) / 1000;
 
 		if (this.tempo >= 10) {
-			this.vida = false;
+			//this.vida = 0;
 		}
 
 		if (Util.colide(this.posX - larguraMinMapa, mouseX, this.posY - alturaMinMapa, mouseY, this.tamX, 0, this.tamY, 0) && editorON && click) {
@@ -102,7 +103,7 @@ class Inimigo {
 			this.inputPosX.style.left = (this.posX - larguraMinMapa + 62) + 'px';
 			this.inputPosX.style.top = (this.posY - alturaMinMapa + 22) + 'px';
 
-			this.inputTamX.style.left = (this.posX - larguraMinMapa+ 62) + 'px';
+			this.inputTamX.style.left = (this.posX - larguraMinMapa + 62) + 'px';
 			this.inputTamX.style.top = (this.posY - alturaMinMapa + 62) + 'px';
 
 			this.inputTamY.style.left = (this.posX - larguraMinMapa + 140) + 'px';
@@ -117,7 +118,14 @@ class Inimigo {
 	}
 
 	desenhaInimigo() {
-		if(this.posX + (this.tamX/2) < larguraMapa && this.posX + (this.tamX/2) >= larguraMinMapa && this.posY + (this.tamY/2) < alturaMapa && this.posY + (this.tamY/2) >= alturaMinMapa){
+		if (this.posX + (this.tamX / 2) < larguraMapa && this.posX + (this.tamX / 2) >= larguraMinMapa && this.posY + (this.tamY / 2) < alturaMapa && this.posY + (this.tamY / 2) >= alturaMinMapa) {
+			//desenha barra de vida
+			contexto.beginPath();
+			contexto.rect(this.posX + this.tamX/2-13 - larguraMinMapa, this.posY +10 - alturaMinMapa, this.vida*10, 5);
+			contexto.fillStyle = "RED";
+			contexto.fill();
+			contexto.closePath();
+			//desenha com img
 			if (this.img !== null && this.img !== undefined) {
 				var img = new Image();
 				img.src = pastaRaizImg + this.img;
@@ -132,14 +140,15 @@ class Inimigo {
 					contexto.fill();
 					contexto.fillStyle = "WHITE"
 					contexto.font = "normal 8pt Arial";
-	
+
 					contexto.fillText("Vel.X", this.posX - larguraMinMapa + 62, this.posY - alturaMinMapa + 12);
 					contexto.fillText("Vel.Y", this.posX - larguraMinMapa + 140, this.posY - alturaMinMapa + 12);
-	
+
 					contexto.fillText("Tam.X", this.posX - larguraMinMapa + 62, this.posY - alturaMinMapa + 52);
 					contexto.fillText("Tam.Y", this.posX - larguraMinMapa + 140, this.posY - alturaMinMapa + 52);
 					contexto.closePath();
 				}
+			//caso nao tenha img
 			} else {
 				contexto.beginPath();
 				contexto.rect(this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
@@ -148,7 +157,7 @@ class Inimigo {
 				contexto.closePath();
 			}
 		}
-		
+
 	}
 
 
@@ -164,13 +173,13 @@ class Inimigo {
 			this.inputPosX.style.width = 50 + "px";
 			this.inputPosX.type = 'number';
 			this.inputPosX.style.position = 'absolute';
-			this.inputPosX.style.left = (this.posX - larguraMinMapa  + 62) + 'px';
-			this.inputPosX.style.top = (this.posY - alturaMinMapa  + 22) + 'px';
+			this.inputPosX.style.left = (this.posX - larguraMinMapa + 62) + 'px';
+			this.inputPosX.style.top = (this.posY - alturaMinMapa + 22) + 'px';
 
 			this.inputPosY.style.width = 50 + "px";
 			this.inputPosY.type = 'number';
 			this.inputPosY.style.position = 'absolute';
-			this.inputPosY.style.left = (this.posX - larguraMinMapa  + 240) + 'px';
+			this.inputPosY.style.left = (this.posX - larguraMinMapa + 240) + 'px';
 			this.inputPosY.style.top = (this.posY - alturaMinMapa + 22) + 'px';
 
 			this.inputTamX.style.width = 50 + "px";
@@ -250,5 +259,9 @@ class Inimigo {
 	}
 	getImg() {
 		return this.img;
+	}
+
+	setVida(vida){
+		this.vida = vida;
 	}
 }

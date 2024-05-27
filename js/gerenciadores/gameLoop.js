@@ -1,5 +1,8 @@
 // CRIA OBJETOS E VARIAVEIS
 var tempoInicialFps = new Date().getTime();
+var antes = new Date().getTime();
+var tempo = 0;
+var podeAtirar = true;
 var frames = 0;
 var fps = 0;
 var tempoAtualFps = 0;
@@ -59,23 +62,21 @@ for (var i = 1; i <= 112; i++) {
 	}
 }
 
-for (var i = 0; i < larguraMundo; i = i +64) {
-	for (var k = 0; k < alturaMundo; k = k +64) {
-		var rdn = Math.floor(Math.random() * 24)+1;
-		if(rdn >2 && rdn < 13){
+for (var i = 0; i < larguraMundo; i = i + 64) {
+	for (var k = 0; k < alturaMundo; k = k + 64) {
+		var rdn = Math.floor(Math.random() * 24) + 1;
+		if (rdn > 2 && rdn < 13) {
 			rdn = 1;
 		}
-		var bloco = new Bloco(i, k, 64, 64, "RED", rdn, "piso/piso"+rdn+".png", textoCamada);
+		var bloco = new Bloco(i, k, 64, 64, "RED", rdn, "piso/piso" + rdn + ".png", textoCamada);
 		arrayBlocos.push(bloco);
 	}
-	
+
 }
 
 var heroi = new Heroi(larguraMapa / 2 - 32, alturaMapa / 2 - 32, 64, 64, 5, 5, "WHITE", true, "hero.png");
+var arma1 = new Arma();
 
-
-	var arma1 = new Arma();
-	arrayArma.push(arma1);
 
 /*FUNÇÕES DO JOGO*/
 // Função que desenha todos os componentes do jogo a cada loop
@@ -114,17 +115,48 @@ function gameLoop() {
 		Util.carregarMapa();
 	}
 
-	//Atirar
-	if (click && arma1.getPodeAtirar() && !editorON) {
-      var angulo = Math.atan2(mouseY - heroi.getPosY()-(heroi.getTamY()/2) + alturaMinMapa, mouseX - heroi.getPosX()-(heroi.getTamX()/2) + larguraMinMapa);
-      arma1 = new Arma(heroi.getPosX()+(heroi.getTamX()/2), heroi.getPosY()+(heroi.getTamY()/2), 3,3, angulo, 10, "WHITE", true, 1);
-      arrayArma.push(arma1);
-	  arma1.setPodeAtirar(false);
+ 	//cooldown da arma
+	tempo = (new Date().getTime() - antes) / 1000;
+    if (tempo >= 0.3) {
+      podeAtirar = true
+      tempo = 0;
+	  antes = new Date().getTime();
     }
+	
+	//Atirar
+	if (click && podeAtirar && !editorON) {
+		var angulo = Math.atan2(mouseY - heroi.getPosY() - (heroi.getTamY() / 2) + alturaMinMapa, mouseX - heroi.getPosX() - (heroi.getTamX() / 2) + larguraMinMapa);
+		arma1 = new Arma(heroi.getPosX() + (heroi.getTamX() / 2), heroi.getPosY() + (heroi.getTamY() / 2), 3, 3, angulo, 10, "WHITE", true, 2, 0.3);
+		arrayArma.push(arma1);
+		podeAtirar = false;
+	}
 
 
+	for (var t = 0; t < arrayArma.length; t++) {
+		if (arrayArma[t].getPosX() > 0 || arrayArma[t].getPosY() > 0) {
+			for (var h = 0; h < arrayInimigo.length; h++) {
+				if (Util.colide(arrayInimigo[h].getPosX() + 15 - larguraMinMapa, arrayArma[t].getPosX() - larguraMinMapa, arrayInimigo[h].getPosY() + 15 - alturaMinMapa, arrayArma[t].getPosY() - alturaMinMapa, arrayInimigo[h].getTamX() - 30, arrayArma[t].getTamX(), arrayInimigo[h].getTamY() - 30, arrayArma[t].getTamY())) {
 
+					var posicaoTiro = Array.from(arrayArma).indexOf(arrayArma[t]);
+					arrayArma.splice(posicaoTiro, 1);
 
+					arrayInimigo[h].setVida(arrayInimigo[h].getVida() - 1);
+					if (arrayInimigo[h].getVida() <= 0) {
+						var posicaoInimigo = Array.from(arrayInimigo).indexOf(arrayInimigo[h]);
+						arrayInimigo.splice(posicaoInimigo, 1);
+					}
+					break;
+				}
+			}
+		};
+	}
+
+	for (var x = 0; x < arrayArma.length; x++) {
+		if (arrayArma[x].getVida() == false) {
+			posicaoTiro = Array.from(arrayArma).indexOf(arrayArma[x]);
+			arrayArma.splice(posicaoTiro, 1);
+		}
+	}
 
 
 	// Limpa o tela
@@ -156,7 +188,7 @@ function gameLoop() {
 			arrayBlocos[i].atualizaBloco();
 		}
 	}
-	
+
 	for (var i = 0; i < arrayInimigo.length; i++) {
 		arrayInimigo[i].desenhaInimigo();
 		arrayInimigo[i].atualizaInimigo();
@@ -173,7 +205,7 @@ function gameLoop() {
 			}
 		}
 		for (var i = 0; i < arrayInimigo.length; i++) {
-			if (Util.colide(arrayInimigo[i].getPosX()- larguraMinMapa, mouseX, arrayInimigo[i].getPosY() - alturaMinMapa, mouseY, arrayInimigo[i].getTamX(), 0, arrayInimigo[i].getTamY(), 0) && teclaFPressionada) {
+			if (Util.colide(arrayInimigo[i].getPosX() - larguraMinMapa, mouseX, arrayInimigo[i].getPosY() - alturaMinMapa, mouseY, arrayInimigo[i].getTamX(), 0, arrayInimigo[i].getTamY(), 0) && teclaFPressionada) {
 				arrayInimigo[i].desenharApagarStatus(0);
 				arrayInimigo.splice(i, 1);
 			}

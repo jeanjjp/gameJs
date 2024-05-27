@@ -1,5 +1,5 @@
 class Arma {
-  constructor(posX, posY, tamX, tamY, ang, vel, cor, vida, tipo) {
+  constructor(posX, posY, tamX, tamY, ang, vel, cor, vida, tipo, cooldown) {
 
     this.posX = posX;
     this.posY = posY;
@@ -7,39 +7,47 @@ class Arma {
     this.tamY = tamY;
     this.ang = ang;
     this.vel = vel;
-	  this.cor = cor;
+    this.cor = cor;
     this.vida = vida;
     this.antes = new Date().getTime();
     this.tempo = 0;
     this.podeAtirar = true;
     this.tipo = tipo;
+    this.cooldown = cooldown;
   }
 
 
   atualizaArma() {
-    //faz o inimigo andar
+    
+    //faz o tiro andar
     this.posX += this.vel * Math.cos(this.ang);
     this.posY += this.vel * Math.sin(this.ang);
-   
+
     //colide com as bordas da tela
     if (this.posX > larguraMapa) {
-     this.vida = false;
+      this.vida = false;
     }
     if (this.posX < larguraMinMapa) {
       this.vida = false;
     }
 
-    if (this.posY > alturaMapa ) {
+    if (this.posY > alturaMapa) {
       this.vida = false;
     }
-     if (this.posY < alturaMinMapa ) {
+    if (this.posY < alturaMinMapa) {
       this.vida = false;
+    }
+
+    if (this.vida == false) {
+      this.posX = 0;
+      this.posY = 0;
     }
 
     this.tempo = (new Date().getTime() - this.antes) / 1000;
 
+    //cooldown da arma
 
-    if(this.tempo >= 0.3){
+    if (this.tempo >= this.cooldown) {
       this.podeAtirar = true
       this.tempo = 0;
     }
@@ -48,16 +56,16 @@ class Arma {
 
   desenhaArma() {
 
-      if (this.vida) {
-        contexto.beginPath();
-        contexto.rect(this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
-        contexto.fillStyle = this.cor;
-        contexto.fill();
-        contexto.closePath();
-      }
-     
-	  
-	
+    if (this.vida) {
+      contexto.beginPath();
+      contexto.rect(this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
+      contexto.fillStyle = this.cor;
+      contexto.fill();
+      contexto.closePath();
+    }
+
+
+
 
 
 
@@ -75,7 +83,7 @@ class Arma {
     return this.tamX;
   }
 
-  getTamY(){
+  getTamY() {
     return this.tamY;
   }
   getAng() {
@@ -84,23 +92,27 @@ class Arma {
   getVel() {
     return this.vel;
   }
-	getCor() {
-		return this.cor;
-	}
+  getCor() {
+    return this.cor;
+  }
   getVida() {
-		return this.vida;
-	}
+    return this.vida;
+  }
   getTempo() {
-		return this.tempo;
-	}
+    return this.tempo;
+  }
   getPodeAtirar() {
-		return this.podeAtirar;
-	}
+    return this.podeAtirar;
+  }
   getTipo() {
-		return this.tipo;
-	}
+    return this.tipo;
+  }
 
-  setPodeAtirar(x){
+  setPodeAtirar(x) {
     this.podeAtirar = x;
+  }
+
+  setVida(vida){
+    this.vida = vida;
   }
 }

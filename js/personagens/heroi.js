@@ -60,21 +60,21 @@ class Heroi {
 			}
 		}
 
-
-		if (this.posX - larguraMinMapa/2 > larguraMapa/2+70 && larguraMapa < larguraMundo) {
+		//Se a posição do heroi for maior que a metade da tela + 1 quadrado e 1px, adiciona 1 quadro na largura máxima e diminui 1 quadro na larguraMin.
+		if (this.posX - larguraMinMapa/2 > larguraMapa/2+larguraBloco+1 && larguraMapa < larguraMundo) {
 			larguraMapa += larguraBloco;
 			larguraMinMapa += larguraBloco;
 
-		}else if (this.posX - larguraMinMapa/2 < larguraMapa/2 && larguraMinMapa > 0) {
+		}else if (this.posX - larguraMinMapa/2 < larguraMapa/2-larguraBloco-1 && larguraMinMapa > 0) {
 			larguraMapa -= larguraBloco;
 			larguraMinMapa -= larguraBloco;
 		}
 
-		if (this.posY - alturaMinMapa/2 > alturaMapa/2+70 && alturaMapa < alturaMundo) {
+		if (this.posY - alturaMinMapa/2 > alturaMapa/2+larguraBloco+1 && alturaMapa < alturaMundo) {
 			alturaMapa += alturaBloco;
 			alturaMinMapa += alturaBloco;
 
-		}else if (this.posY - alturaMinMapa/2 < alturaMapa/2 && alturaMinMapa > 0) {
+		}else if (this.posY - alturaMinMapa/2 < alturaMapa/2-larguraBloco-1 && alturaMinMapa > 0) {
 			alturaMapa -= alturaBloco;
 			alturaMinMapa -=alturaBloco;
 		}
@@ -93,6 +93,7 @@ class Heroi {
 			this.posY = alturaMundo - this.tamY / 2;
 		}
 
+		//COlisão com blocos
 		for (var i = 0; i < arrayBlocos.length; i++) {
 			if (Util.colide(arrayBlocos[i].getPosX() - larguraMinMapa + 10, this.posX - larguraMinMapa + (this.tamX / 2), arrayBlocos[i].getPosY() - alturaMinMapa + 10, this.posY - alturaMinMapa + (this.tamY / 2), arrayBlocos[i].getTamX() - 38, this.tamX, arrayBlocos[i].getTamY() - 17, this.tamY) && !editorON && arrayBlocos[i].getTipo() == 13) {
 				this.posX = this.oldX;
