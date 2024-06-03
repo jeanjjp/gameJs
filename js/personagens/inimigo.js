@@ -15,6 +15,7 @@ class Inimigo {
 		this.camada = camada;
 		this.img = img;
 		this.mostrarStatus = false;
+		this.xp = 1;
 
 		//inputs
 		this.inputPosX = document.createElement('input');
@@ -260,8 +261,15 @@ class Inimigo {
 	getImg() {
 		return this.img;
 	}
+	getXP() {
+		return this.xp;
+	}
 
 	setVida(vida){
 		this.vida = vida;
+	}
+
+	setXP(xp){
+		this.xp = xp;
 	}
 }

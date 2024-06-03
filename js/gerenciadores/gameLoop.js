@@ -27,6 +27,7 @@ var posInicialCriadoX = 842;
 var posInicialCriadoY = 130;
 var textoMenu = "Menu 1";
 var textoCamada = "Piso 1";
+var pontos = 0;
 
 var botaoCamada1 = new Botao(840, 40, 50, 20, "BLUE", 11, "Piso 1", "WHITE");
 var botaoCamada2 = new Botao(906, 40, 50, 20, "BLUE", 12, "Piso 2", "WHITE");
@@ -77,6 +78,20 @@ for (var i = 0; i < larguraMundo; i = i + 64) {
 var heroi = new Heroi(larguraMapa / 2 - 32, alturaMapa / 2 - 32, 64, 64, 5, 5, "WHITE", true, "hero.png");
 var arma1 = new Arma();
 
+for (let i = 0; i < 20; i++) {
+	var rdn = Math.floor(Math.random() * 4) + 1;
+	if (rdn == 1) {
+		var inimigo = new Inimigo(Math.random() * larguraMapa, alturaMinMapa, 64, 64, Math.random() * 1, Math.random() * 1, "RED", 2, textoCamada, "npc/npc1.png");
+	} else if (rdn == 2) {
+		var inimigo = new Inimigo(Math.random() * larguraMapa, alturaMapa, 64, 64, Math.random() * 1, Math.random() * 1, "RED", 2, textoCamada, "npc/npc1.png");
+	} else if (rdn == 3) {
+		var inimigo = new Inimigo(larguraMapa, Math.random() * alturaMapa, 64, 64, Math.random() * 1, Math.random() * 1, "RED", 2, textoCamada, "npc/npc1.png");
+	} else {
+		var inimigo = new Inimigo(larguraMinMapa, Math.random() * alturaMapa, 64, 64, Math.random() * 1, Math.random() * 1, "RED", 2, textoCamada, "npc/npc1.png");
+	}
+
+	arrayInimigo.push(inimigo);
+}
 
 /*FUNÇÕES DO JOGO*/
 // Função que desenha todos os componentes do jogo a cada loop
@@ -115,14 +130,30 @@ function gameLoop() {
 		Util.carregarMapa();
 	}
 
- 	//cooldown da arma
+	//cooldown da arma
 	tempo = (new Date().getTime() - antes) / 1000;
-    if (tempo >= 0.3) {
-      podeAtirar = true
-      tempo = 0;
-	  antes = new Date().getTime();
-    }
-	
+	if (tempo >= 0.3) {
+		podeAtirar = true
+		tempo = 0;
+		antes = new Date().getTime();
+	}
+
+
+	if (arrayInimigo.length < 20) {
+		var rdn = Math.floor(Math.random() * 4) + 1;
+		if (rdn == 1) {
+			var inimigo = new Inimigo(Math.random() * (larguraMapa - larguraMinMapa), alturaMinMapa, 64, 64, Math.random() * 1, Math.random() * 1, "RED", 2, textoCamada, "npc/npc1.png");
+		} else if (rdn == 2) {
+			var inimigo = new Inimigo(Math.random() * (larguraMapa - larguraMinMapa), alturaMapa, 64, 64, Math.random() * 1, Math.random() * 1, "RED", 2, textoCamada, "npc/npc1.png");
+		} else if (rdn == 3) {
+			var inimigo = new Inimigo(larguraMapa, Math.random() * (alturaMapa - alturaMinMapa), 64, 64, Math.random() * 1, Math.random() * 1, "RED", 2, textoCamada, "npc/npc1.png");
+		} else {
+			var inimigo = new Inimigo(larguraMinMapa, Math.random() * (alturaMapa - alturaMinMapa), 64, 64, Math.random() * 1, Math.random() * 1, "RED", 2, textoCamada, "npc/npc1.png");
+		}
+
+		arrayInimigo.push(inimigo);
+	}
+
 	//Atirar
 	if (click && podeAtirar && !editorON) {
 		var angulo = Math.atan2(mouseY - heroi.getPosY() - (heroi.getTamY() / 2) + alturaMinMapa, mouseX - heroi.getPosX() - (heroi.getTamX() / 2) + larguraMinMapa);
@@ -142,6 +173,7 @@ function gameLoop() {
 
 					arrayInimigo[h].setVida(arrayInimigo[h].getVida() - 1);
 					if (arrayInimigo[h].getVida() <= 0) {
+						pontos +=arrayInimigo[h].getXP();
 						var posicaoInimigo = Array.from(arrayInimigo).indexOf(arrayInimigo[h]);
 						arrayInimigo.splice(posicaoInimigo, 1);
 					}
@@ -215,8 +247,14 @@ function gameLoop() {
 
 	//  -----  /\  DESENHA  E ATUALIZA EM CIMA DO BACKGROUD ----- /\
 
-
-
+	contexto.beginPath();
+	contexto.rect(10, 35, 70, 20);
+	contexto.fillStyle = "WHITE";
+	contexto.fill();
+	contexto.fillStyle = "BLACK";
+	contexto.font = "bold 10pt Arial";
+	contexto.fillText("XP: "+pontos, 10, 50);
+	contexto.closePath();
 
 
 	//desenha menu

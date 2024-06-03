@@ -14,7 +14,6 @@ class Util {
 
 		//desenha linhas horizontais
 		for (var i = 0; i < alturaMapa; i += alturaBloco) {
-			contexto.beginPath();
 			contexto.rect(0 - larguraMinMapa, i - alturaMinMapa, larguraMapa, 1);
 			contexto.fillStyle = "WHITE";
 			contexto.fill();

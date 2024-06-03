@@ -26,7 +26,7 @@ class Bloco {
 				this.posY = mouseY + alturaMinMapa - (mouseY % alturaBloco);
 			} else {
 				this.posX = mouseX + larguraMinMapa - (this.tamX / 2);
-				this.posY = mouseY + alturaMinMapa- (this.tamY / 2);
+				this.posY = mouseY + alturaMinMapa - (this.tamY / 2);
 			}
 
 			if (!click) {
@@ -58,26 +58,26 @@ class Bloco {
 				} else {
 					contexto.beginPath();
 					contexto.rect(this.posX - larguraMinMapa, this.posY - alturaMinMapa, this.tamX, this.tamY);
-					if(this.camada === "Piso 2"){
-					   contexto.fillStyle = "BLUE";
-					   }else{
-						   contexto.fillStyle = "GREY";
-					   }
-					
+					if (this.camada === "Piso 2") {
+						contexto.fillStyle = "BLUE";
+					} else {
+						contexto.fillStyle = "GREY";
+					}
+
 					contexto.fill();
 					contexto.closePath();
 				}
-				
-			}else{
-				contexto.beginPath();
-						contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
-						contexto.fillStyle = this.cor;
-						contexto.fill();
-						contexto.closePath();
+
+			} else {
+				// contexto.beginPath();
+				// contexto.rect(this.posX, this.posY, this.tamX, this.tamY);
+				// contexto.fillStyle = this.cor;
+				// contexto.fill();
+				// contexto.closePath();
 			}
-			
+
 		} else {
-			if(this.posX < larguraMapa && this.posX >= larguraMinMapa && this.posY < alturaMapa && this.posY >= alturaMinMapa){
+			if (this.posX < larguraMapa && this.posX >= larguraMinMapa && this.posY < alturaMapa && this.posY >= alturaMinMapa) {
 				if (this.img !== null && this.img !== undefined) {
 					var img = new Image();
 					img.src = pastaRaizImg + this.img;
@@ -93,7 +93,7 @@ class Bloco {
 					contexto.closePath();
 				}
 			}
-			
+
 		}
 	}
 
