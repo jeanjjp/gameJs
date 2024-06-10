@@ -27,7 +27,8 @@ var posInicialCriadoX = 842;
 var posInicialCriadoY = 130;
 var textoMenu = "Menu 1";
 var textoCamada = "Piso 1";
-var pontos = 0;
+var cooldownArma1 = 0.3;
+var proximoNivel = 5;
 
 var botaoCamada1 = new Botao(840, 40, 50, 20, "BLUE", 11, "Piso 1", "WHITE");
 var botaoCamada2 = new Botao(906, 40, 50, 20, "BLUE", 12, "Piso 2", "WHITE");
@@ -132,7 +133,7 @@ function gameLoop() {
 
 	//cooldown da arma
 	tempo = (new Date().getTime() - antes) / 1000;
-	if (tempo >= 0.3) {
+	if (tempo >= arma1.getCooldown()) {
 		podeAtirar = true
 		tempo = 0;
 		antes = new Date().getTime();
@@ -157,7 +158,7 @@ function gameLoop() {
 	//Atirar
 	if (click && podeAtirar && !editorON) {
 		var angulo = Math.atan2(mouseY - heroi.getPosY() - (heroi.getTamY() / 2) + alturaMinMapa, mouseX - heroi.getPosX() - (heroi.getTamX() / 2) + larguraMinMapa);
-		arma1 = new Arma(heroi.getPosX() + (heroi.getTamX() / 2), heroi.getPosY() + (heroi.getTamY() / 2), 3, 3, angulo, 10, "WHITE", true, 2, 0.3);
+		arma1 = new Arma(heroi.getPosX() + (heroi.getTamX() / 2), heroi.getPosY() + (heroi.getTamY() / 2), 3, 3, angulo, 10, "WHITE", true, 2, cooldownArma1);
 		arrayArma.push(arma1);
 		podeAtirar = false;
 	}
@@ -173,15 +174,24 @@ function gameLoop() {
 
 					arrayInimigo[h].setVida(arrayInimigo[h].getVida() - 1);
 					if (arrayInimigo[h].getVida() <= 0) {
-						pontos +=arrayInimigo[h].getXP();
+						heroi.setXP(heroi.getXP() + arrayInimigo[h].getXP()); 
 						var posicaoInimigo = Array.from(arrayInimigo).indexOf(arrayInimigo[h]);
 						arrayInimigo.splice(posicaoInimigo, 1);
+
+						if (heroi.getXP() >= proximoNivel) {
+							cooldownArma1 -= 0.003;
+							proximoNivel += heroi.getXP();
+							heroi.setNivel(heroi.getNivel()+1);
+						}
+						
 					}
 					break;
 				}
 			}
 		};
 	}
+	console.log("proximo Nivel = " + proximoNivel + " | Cooldwon arma = "  + cooldownArma1);
+	//console.log("Cooldwon arma" + cooldownArma1);
 
 	for (var x = 0; x < arrayArma.length; x++) {
 		if (arrayArma[x].getVida() == false) {
@@ -247,16 +257,6 @@ function gameLoop() {
 
 	//  -----  /\  DESENHA  E ATUALIZA EM CIMA DO BACKGROUD ----- /\
 
-	contexto.beginPath();
-	contexto.rect(10, 35, 70, 20);
-	contexto.fillStyle = "WHITE";
-	contexto.fill();
-	contexto.fillStyle = "BLACK";
-	contexto.font = "bold 10pt Arial";
-	contexto.fillText("XP: "+pontos, 10, 50);
-	contexto.closePath();
-
-
 	//desenha menu
 	if (editorON) {
 		Util.desenhaMenuSuperior(larguraMapa, 30, "#6497b1");
@@ -295,6 +295,8 @@ function gameLoop() {
 
 		}
 
+	}else{
+		Util.desenhaUI();
 	}
 }
 

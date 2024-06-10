@@ -13,6 +13,8 @@ class Heroi {
 		this.img = img;
 		var oldX = 0;
 		var oldY = 0;
+		this. XP = 0;
+		this.nivel = 1;
 	}
 
 
@@ -232,5 +234,20 @@ class Heroi {
 	}
 	setCor(cor) {
 		this.cor = cor;
+	}
+	setXP(XP) {
+		this.XP = XP;
+	}
+
+	getXP(){
+		return this.XP;
+	}
+
+	getNivel(){
+		return this.nivel;
+	}
+
+	setNivel(nivel){
+		this.nivel = nivel;
 	}
 }

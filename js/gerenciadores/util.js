@@ -1,5 +1,26 @@
 class Util {
 
+	static desenhaUI(){
+		//desenha UI XP
+
+		//desenha XP
+		contexto.rect(10, 35, 70, 20);
+		contexto.fillStyle = "WHITE";
+		contexto.fill();
+		contexto.fillStyle = "BLACK";
+		contexto.font = "bold 10pt Arial";
+		contexto.fillText("XP: "+heroi.getXP(), 10, 50);
+
+		//desenha NIvel
+		contexto.beginPath();
+		contexto.rect(100, 35, 70, 20);
+		contexto.fillStyle = "WHITE";
+		contexto.fill();
+		contexto.fillStyle = "BLACK";
+		contexto.font = "bold 10pt Arial";
+		contexto.fillText("Level: "+heroi.getNivel(), 100, 50);
+	}
+
 	static desenhaBackGround(largura, altura, cor) {
 
 		//desenha o backGround
@@ -28,6 +49,7 @@ class Util {
 		contexto.rect(0, 0, largura - larguraMinMapa, altura);
 		contexto.fillStyle = corMenu;
 		contexto.fill();
+
 	}
 
 	static desenhaMenuLateral(largura, altura, corMenu, textoMenu, corTexto, mouseX, mouseY, click, textoPiso) {

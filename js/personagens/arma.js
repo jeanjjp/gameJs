@@ -108,11 +108,19 @@ class Arma {
     return this.tipo;
   }
 
+  getCooldown(){
+    return this.cooldown;
+  }
+
   setPodeAtirar(x) {
     this.podeAtirar = x;
   }
 
   setVida(vida){
     this.vida = vida;
+  }
+
+  setCooldown(cooldown){
+    this.cooldown = cooldown;
   }
 }
